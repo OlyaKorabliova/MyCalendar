@@ -5692,20 +5692,19 @@ var MyCalendar = function (_React$Component) {
     }
 
     _createClass(MyCalendar, [{
-        key: "render",
-        value: function render() {
-            var calendarMonth = this.calendar();
-            return _react2.default.createElement(
-                "div",
-                { className: "Calendar" },
-                this.renderCalendarHeader(),
-                this.renderDays(),
-                this.renderCalendar(calendarMonth)
-            );
+        key: "viewToday",
+        value: function viewToday(e) {
+            e.preventDefault();
+            var _state = this.state,
+                todayYear = _state.todayYear,
+                todayMonth = _state.todayMonth,
+                todayDate = _state.todayDate;
+
+            this.setState({ year: todayYear, month: todayMonth, date: todayDate });
         }
     }, {
-        key: "renderDays",
-        value: function renderDays() {
+        key: "renderDayNames",
+        value: function renderDayNames() {
             var dayNames = this.state.dayNames;
 
             return _react2.default.createElement(
@@ -5723,10 +5722,10 @@ var MyCalendar = function (_React$Component) {
     }, {
         key: "renderCalendarHeader",
         value: function renderCalendarHeader() {
-            var _state = this.state,
-                months = _state.months,
-                month = _state.month,
-                year = _state.year;
+            var _state2 = this.state,
+                months = _state2.months,
+                month = _state2.month,
+                year = _state2.year;
 
             return _react2.default.createElement(
                 "form",
@@ -5760,9 +5759,9 @@ var MyCalendar = function (_React$Component) {
         key: "clickBack",
         value: function clickBack(e) {
             e.preventDefault();
-            var _state2 = this.state,
-                month = _state2.month,
-                year = _state2.year;
+            var _state3 = this.state,
+                month = _state3.month,
+                year = _state3.year;
 
             if (month !== 0) {
                 this.setState({
@@ -5776,9 +5775,9 @@ var MyCalendar = function (_React$Component) {
         key: "clickNext",
         value: function clickNext(e) {
             e.preventDefault();
-            var _state3 = this.state,
-                month = _state3.month,
-                year = _state3.year;
+            var _state4 = this.state,
+                month = _state4.month,
+                year = _state4.year;
 
             if (month !== 11) {
                 this.setState({
@@ -5789,14 +5788,14 @@ var MyCalendar = function (_React$Component) {
             }
         }
     }, {
-        key: "calendar",
-        value: function calendar() {
+        key: "calendarModel",
+        value: function calendarModel() {
             var startDay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
             var DAYS_AT_THE_WEEK = 7;
-            var _state4 = this.state,
-                year = _state4.year,
-                month = _state4.month;
+            var _state5 = this.state,
+                year = _state5.year,
+                month = _state5.month;
 
             var numberOfDays = new Date(year, month + 1, 0).getDate();
             var weekday = (DAYS_AT_THE_WEEK - (startDay - new Date(year, month, startDay).getDay())) % DAYS_AT_THE_WEEK;
@@ -5807,34 +5806,69 @@ var MyCalendar = function (_React$Component) {
     }, {
         key: "renderCalendar",
         value: function renderCalendar(calendar) {
-            var _state5 = this.state,
-                todayYear = _state5.todayYear,
-                todayMonth = _state5.todayMonth,
-                todayDate = _state5.todayDate,
-                month = _state5.month;
+            var _state6 = this.state,
+                todayYear = _state6.todayYear,
+                todayMonth = _state6.todayMonth,
+                todayDate = _state6.todayDate,
+                month = _state6.month,
+                year = _state6.year;
 
-            var today = new Date(todayYear, todayMonth, todayDate);
+            var firstDayCurMonth = new Date(year, month, 1); // 1st day of current month
+            var lastDayPrevMonth = new Date(year, month, 0); // last day of previous month
+            var firstDayIndex = firstDayCurMonth.getDay(); // index of 1st day in month (0 - 6: Mon - Sun)
+
+            firstDayIndex === 0 ? firstDayIndex = 6 : firstDayIndex--;
+
+            var lastDate = lastDayPrevMonth.getDate() - firstDayIndex + 1; // dates of last days in previous month that are visible in calendar view
+            var i = -1;
+
             return calendar.map(function (row) {
                 return _react2.default.createElement(
                     "div",
                     { className: "Calendar__week" },
                     row.map(function (d) {
-                        return today.getMonth() === month && d === today.getDate() ? _react2.default.createElement(
-                            "span",
-                            { className: "Calendar__date Calendar__date_today" },
-                            d
-                        ) : d ? _react2.default.createElement(
-                            "span",
-                            { className: "Calendar__date" },
-                            d
-                        ) : _react2.default.createElement(
-                            "span",
-                            { className: "Calendar__date Calendar__date_disabled" },
-                            "-"
-                        );
+                        if (d) {
+                            if (todayMonth === month && todayYear === year && d === todayDate) {
+                                return _react2.default.createElement(
+                                    "span",
+                                    { className: "Calendar__date Calendar__date_today" },
+                                    d
+                                );
+                            } else {
+                                return _react2.default.createElement(
+                                    "span",
+                                    { className: "Calendar__date" },
+                                    d
+                                );
+                            }
+                        } else {
+                            i++;
+                            return _react2.default.createElement(
+                                "span",
+                                { className: "Calendar__date Calendar__date_disabled" },
+                                lastDate + i
+                            );
+                        }
                     })
                 );
             });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var calendarMonth = this.calendarModel();
+            return _react2.default.createElement(
+                "div",
+                { className: "Calendar" },
+                this.renderCalendarHeader(),
+                this.renderDayNames(),
+                this.renderCalendar(calendarMonth),
+                _react2.default.createElement(
+                    "button",
+                    { className: "Calendar__today", onClick: this.viewToday.bind(this) },
+                    "Today"
+                )
+            );
         }
     }]);
 

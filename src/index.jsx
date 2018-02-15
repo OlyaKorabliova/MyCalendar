@@ -33,22 +33,15 @@ class MyCalendar extends React.Component {
         };
     }
 
-    render() {
-        const calendarMonth = this.calendar();
-        return (
-            <div className="Calendar">
-                {this.renderCalendarHeader()}
-                {this.renderDays()}
-                {this.renderCalendar(calendarMonth)}
-            </div>
-        )
+    viewToday(e) {
+        e.preventDefault();
+        const {todayYear, todayMonth, todayDate} = this.state;
+        this.setState({year: todayYear, month: todayMonth, date: todayDate})
     }
 
-    renderDays() {
+    renderDayNames() {
         const {dayNames} = this.state;
-        return <div>
-            {dayNames.map(day => <span className={"Calendar__day"}>{day}</span>)}
-        </div>
+        return <div>{dayNames.map(day => <span className={"Calendar__day"}>{day}</span>)}</div>
 
     }
 
@@ -97,14 +90,11 @@ class MyCalendar extends React.Component {
         }
     }
 
-    calendar(startDay = 0) {
+    calendarModel(startDay = 0) {
         const DAYS_AT_THE_WEEK = 7;
         const {year, month} = this.state;
         const numberOfDays = new Date(year, month + 1, 0).getDate();
-        let weekday =
-            (DAYS_AT_THE_WEEK -
-                (startDay - new Date(year, month, startDay).getDay())) %
-            DAYS_AT_THE_WEEK;
+        let weekday = (DAYS_AT_THE_WEEK - (startDay - new Date(year, month, startDay).getDay())) % DAYS_AT_THE_WEEK;
         return splitEvery(DAYS_AT_THE_WEEK)([
             ...Array(weekday).fill(),
             ...Array(numberOfDays)
@@ -114,22 +104,48 @@ class MyCalendar extends React.Component {
     }
 
     renderCalendar(calendar) {
-        const {todayYear, todayMonth, todayDate, month} = this.state;
-        const today = new Date(todayYear, todayMonth, todayDate);
+        const {todayYear, todayMonth, todayDate, month, year} = this.state;
+        const firstDayCurMonth = new Date(year, month, 1);   // 1st day of current month
+        const lastDayPrevMonth = new Date(year, month, 0);  // last day of previous month
+        let firstDayIndex = firstDayCurMonth.getDay();      // index of 1st day in month (0 - 6: Mon - Sun)
+
+        (firstDayIndex === 0) ? firstDayIndex = 6 : firstDayIndex--;
+
+        const lastDate = lastDayPrevMonth.getDate() - firstDayIndex + 1;    // dates of last days in previous month that are visible in calendar view
+        let i = -1;
+
         return calendar.map(row => (
             <div className="Calendar__week">
-                {row.map( d =>
-                    (today.getMonth() === month && d === today.getDate()) ?
-                        <span className="Calendar__date Calendar__date_today">{d}</span>
-                        :
-                        ( (d) ?
-                            <span className="Calendar__date">{d}</span>
-                            :
-                            <span className="Calendar__date Calendar__date_disabled">{"-"}</span> )
-                        )
-                }
+                {row.map(d => {
+                    if (d) {
+                        if (todayMonth === month && todayYear === year && d === todayDate) {
+                            return <span className="Calendar__date Calendar__date_today">{d}</span>
+                        }
+                        else {
+                            return <span className="Calendar__date">{d}</span>
+                        }
+                    }
+                    else {
+                        i++;
+                        return <span className={"Calendar__date Calendar__date_disabled"}>{lastDate + i}</span>;
+                    }
+                })}
+
             </div>
         ));
+    }
+
+
+    render() {
+        const calendarMonth = this.calendarModel();
+        return (
+            <div className="Calendar">
+                {this.renderCalendarHeader()}
+                {this.renderDayNames()}
+                {this.renderCalendar(calendarMonth)}
+                <button className={"Calendar__today"} onClick={this.viewToday.bind(this)}>Today</button>
+            </div>
+        )
     }
 }
 

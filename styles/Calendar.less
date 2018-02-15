@@ -1,10 +1,10 @@
 @import "colors";
-@cell-w: 49px;
-@cell-h: 50px;
+
+@cell-w: 59px;
+@cell-h: 60px;
 
 .Calendar {
   width: 7 * (@cell-w + 1px);
-  height: 8 * @cell-h;
   margin: auto;
   font-family: "Open Sans", sans-serif;
   &__day {
@@ -37,7 +37,7 @@
       color: white;
     }
     &_disabled {
-      opacity: 0.5;
+      opacity: 0.4;
       cursor: default;
     }
   }
@@ -46,8 +46,6 @@
     border: none;
     color: transparent;
     margin: 4px;
-    display: inline-block;
-    vertical-align: middle;
     cursor: pointer;
     &_back {
       background: url("../images/back.svg") no-repeat right;
@@ -60,11 +58,22 @@
       float: right;
     }
   }
-
   &__header {
     height: 24px;
     padding: 10px 0;
     text-align: center;
     color: @text-coral;
+  }
+  &__today {
+    clear: left;
+    float: right;
+    border: @text-coral 1px solid;
+    color: @text-coral;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 12px;
+    cursor: pointer;
   }
 }

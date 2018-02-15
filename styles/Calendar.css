@@ -1,11 +1,10 @@
 .Calendar {
-  width: 350px;
-  height: 400px;
+  width: 420px;
   margin: auto;
   font-family: "Open Sans", sans-serif;
 }
 .Calendar__day {
-  width: 49px;
+  width: 59px;
   height: 22px;
   float: left;
   text-align: center;
@@ -18,8 +17,8 @@
   margin: 0 0.5px;
 }
 .Calendar__date {
-  width: 49px;
-  height: 50px;
+  width: 59px;
+  height: 60px;
   border: 1px solid #ff7f50;
   float: left;
   box-sizing: border-box;
@@ -35,7 +34,7 @@
   color: white;
 }
 .Calendar__date_disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: default;
 }
 .Calendar__button {
@@ -43,8 +42,6 @@
   border: none;
   color: transparent;
   margin: 4px;
-  display: inline-block;
-  vertical-align: middle;
   cursor: pointer;
 }
 .Calendar__button_back {
@@ -62,4 +59,16 @@
   padding: 10px 0;
   text-align: center;
   color: #ff7f50;
+}
+.Calendar__today {
+  clear: left;
+  float: right;
+  border: #ff7f50 1px solid;
+  color: #ff7f50;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: white;
+  font-size: 12px;
+  cursor: pointer;
 }
