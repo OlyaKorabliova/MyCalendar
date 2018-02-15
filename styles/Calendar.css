@@ -1,0 +1,65 @@
+.Calendar {
+  width: 350px;
+  height: 400px;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+.Calendar__day {
+  width: 49px;
+  height: 22px;
+  float: left;
+  text-align: center;
+  border: #ff7f50 solid 1px;
+  border-bottom: 0;
+  box-sizing: border-box;
+  color: #ff7f50;
+  font-weight: bold;
+  font-size: 13px;
+  margin: 0 0.5px;
+}
+.Calendar__date {
+  width: 49px;
+  height: 50px;
+  border: 1px solid #ff7f50;
+  float: left;
+  box-sizing: border-box;
+  color: #ff7f50;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 3px 0 0 5px;
+  background-color: #ffff33;
+  margin: 0.5px;
+}
+.Calendar__date_today {
+  background-color: #ff7f50;
+  color: white;
+}
+.Calendar__date_disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.Calendar__button {
+  width: 98px;
+  border: none;
+  color: transparent;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.Calendar__button_back {
+  background: url("../images/back.svg") no-repeat right;
+  background-size: 12px 12px;
+  float: left;
+}
+.Calendar__button_next {
+  background: url("../images/next.svg") no-repeat left;
+  background-size: 12px 12px;
+  float: right;
+}
+.Calendar__header {
+  height: 24px;
+  padding: 10px 0;
+  text-align: center;
+  color: #ff7f50;
+}

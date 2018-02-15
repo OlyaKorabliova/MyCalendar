@@ -1,0 +1,70 @@
+@import "colors";
+@cell-w: 49px;
+@cell-h: 50px;
+
+.Calendar {
+  width: 7 * (@cell-w + 1px);
+  height: 8 * @cell-h;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+  &__day {
+    width: @cell-w;
+    height: 22px;
+    float: left;
+    text-align: center;
+    border: @text-coral solid 1px;
+    border-bottom: 0;
+    box-sizing: border-box;
+    color: @text-coral;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0 0.5px;
+  }
+  &__date {
+    width: @cell-w;
+    height: @cell-h;
+    border: 1px solid @text-coral;
+    float: left;
+    box-sizing: border-box;
+    color: @text-coral;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px 0 0 5px;
+    background-color: @background-yellow;
+    margin: 0.5px;
+    &_today {
+      background-color: @text-coral;
+      color: white;
+    }
+    &_disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+  &__button {
+    width: 98px;
+    border: none;
+    color: transparent;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    &_back {
+      background: url("../images/back.svg") no-repeat right;
+      background-size: 12px 12px;
+      float: left;
+    }
+    &_next {
+      background: url("../images/next.svg") no-repeat left;
+      background-size: 12px 12px;
+      float: right;
+    }
+  }
+
+  &__header {
+    height: 24px;
+    padding: 10px 0;
+    text-align: center;
+    color: @text-coral;
+  }
+}
