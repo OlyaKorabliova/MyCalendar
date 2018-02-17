@@ -1,11 +1,11 @@
 # MyCalendar
 - [ ] Add LESS Loader
-- [ ] JSX change to JS
+- [x] JSX change to JS
 - [ ] Split to Components (app.js, etc.)
 - [ ] Refactor MyCalendar -> Calendar
-- [ ] Calendar body separete from Calendar header and button "Today"
-- [ ] gitignore idea node_modules
-- [ ] Clean webpack.config.js
+- [ ] Calendar body separate from Calendar header and button "Today"
+- [x] .gitignore idea node_modules
+- [x] Clean webpack.config.js
 - [ ] Add npm start
 - [ ] Commits names
 - [ ] Calendar body - Array 6x7 

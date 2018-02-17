@@ -1,21 +1,14 @@
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.js',
     output: {
         filename: './build/bundle.js'
-    },
-    resolve: {
-        extensions: ['.js', '.jsx']
     },
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true,
-                    presets: ['react', 'es2015', 'env']
-                }
+                exclude: /node_modules/
             }
         ]
     }
