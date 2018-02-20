@@ -1,0 +1,25 @@
+@import "Vars.less";
+
+.Calendar-header {
+  height: 24px;
+  padding: 10px 0;
+  text-align: center;
+  color: @text-coral;
+  &__button {
+    width: 98px;
+    border: none;
+    color: transparent;
+    margin: 4px;
+    cursor: pointer;
+    &_back {
+      background: url("../../images/back.svg") no-repeat right;
+      background-size: 12px 12px;
+      float: left;
+    }
+    &_next {
+      background: url("../../images/next.svg") no-repeat left;
+      background-size: 12px 12px;
+      float: right;
+    }
+  }
+}
