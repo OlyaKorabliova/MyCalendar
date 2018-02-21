@@ -1,29 +1,14 @@
 import React, {Component} from "react";
-// import ReactDOM from "react-dom";
 import "../styles/Calendar-header.less";
 
-const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 class CalendarHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: this.props.date.getDate(),
-            month: this.props.date.getMonth(),
-            year: this.props.date.getFullYear()
+            month: this.props.month,
+            year: this.props.year
         }
     }
 
@@ -52,18 +37,28 @@ class CalendarHeader extends Component {
 
     clickBack(e) {
         e.preventDefault();
-        const {month, year} = this.state;
-        (month !== 0) ? this.setState({month: month - 1}) : this.setState({month: 11, year: year - 1});
+        this.changeCalendarHeader(0, 11, -1)
     }
 
     clickNext(e) {
         e.preventDefault();
-        const {month, year} = this.state;
-        (month !== 11) ? this.setState({month: month + 1}) : this.setState({month: 0, year: year + 1});
+        this.changeCalendarHeader(11, 0, 1)
     }
+
+    changeCalendarHeader(ifValue, newMonthValue, move) {
+        let tempState = this.state;
+        if (tempState.month !== ifValue)
+            tempState.month += move;
+        else {
+            tempState.month = newMonthValue;
+            tempState.year += move;
+        }
+        this.setState(tempState);
+        this.props.onChange(tempState);
+
+    }
+
 
 }
 
-// ReactDOM.render(<CalendarHeader date={new Date()}/>, document.querySelector(".Layout"));
-//
 export default CalendarHeader;

@@ -3,10 +3,10 @@
 - [x] JSX change to JS
 - [x] Split to Components (app.js, etc.)
 - [x] Refactor MyCalendar -> Calendar
-- [x] Calendar body separate from Calendar header and button "Today"
+- [x] Calendar body should be separated from Calendar header
 - [x] .gitignore add idea node_modules
 - [x] Clean webpack.config.js
 - [x] Add npm start
-- [ ] Commits names
+- [x] Commits names
 - [x] Calendar body - Array 6x7
-- [ ] Rewrite index.js (methods, delete unnecessary code, this.state, this.props)
+- [x] Rewrite index.js (methods, delete unnecessary code, this.state, this.props)

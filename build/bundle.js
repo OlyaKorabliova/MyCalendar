@@ -23460,13 +23460,7 @@ var _CalendarBody = __webpack_require__(156);
 
 var _CalendarBody2 = _interopRequireDefault(_CalendarBody);
 
-var _RefreshButton = __webpack_require__(359);
-
-var _RefreshButton2 = _interopRequireDefault(_RefreshButton);
-
 __webpack_require__(362);
-
-__webpack_require__(364);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23475,8 +23469,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import ReactDOM from "react-dom";
-
 
 var Layout = function (_Component) {
     _inherits(Layout, _Component);
@@ -23484,14 +23476,11 @@ var Layout = function (_Component) {
     function Layout(props) {
         _classCallCheck(this, Layout);
 
-        // const today = this.props.date || new Date();
-        // const calendarModel = this.createCalendarModel();
         var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
         _this.state = {
-            // date: this.props.date,
-            // calendar: calendarModel,
-            // today: today.getDate()
+            month: _this.props.date.getMonth(),
+            year: _this.props.date.getFullYear()
         };
         return _this;
     }
@@ -23499,21 +23488,21 @@ var Layout = function (_Component) {
     _createClass(Layout, [{
         key: "render",
         value: function render() {
-            console.log(this.props.date);
+            var _this2 = this;
+
             return _react2.default.createElement(
                 "div",
                 null,
-                _react2.default.createElement(_CalendarHeader2.default, { date: this.props.date }),
-                _react2.default.createElement(_CalendarBody2.default, { date: this.props.date }),
-                _react2.default.createElement(_RefreshButton2.default, { date: new Date() })
+                _react2.default.createElement(_CalendarHeader2.default, { month: this.state.month, year: this.state.year, onChange: function onChange(v) {
+                        return _this2.setState(v);
+                    } }),
+                _react2.default.createElement(_CalendarBody2.default, { month: this.state.month, year: this.state.year })
             );
         }
     }]);
 
     return Layout;
 }(_react.Component);
-
-// ReactDOM.render(<Layout date={new Date()}/>, document.querySelector(".Layout"));
 
 exports.default = Layout;
 
@@ -23543,8 +23532,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import ReactDOM from "react-dom";
-
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -23557,9 +23544,8 @@ var CalendarHeader = function (_Component) {
         var _this = _possibleConstructorReturn(this, (CalendarHeader.__proto__ || Object.getPrototypeOf(CalendarHeader)).call(this, props));
 
         _this.state = {
-            date: _this.props.date.getDate(),
-            month: _this.props.date.getMonth(),
-            year: _this.props.date.getFullYear()
+            month: _this.props.month,
+            year: _this.props.year
         };
         return _this;
     }
@@ -23603,30 +23589,29 @@ var CalendarHeader = function (_Component) {
         key: "clickBack",
         value: function clickBack(e) {
             e.preventDefault();
-            var _state2 = this.state,
-                month = _state2.month,
-                year = _state2.year;
-
-            month !== 0 ? this.setState({ month: month - 1 }) : this.setState({ month: 11, year: year - 1 });
+            this.changeCalendarHeader(0, 11, -1);
         }
     }, {
         key: "clickNext",
         value: function clickNext(e) {
             e.preventDefault();
-            var _state3 = this.state,
-                month = _state3.month,
-                year = _state3.year;
-
-            month !== 11 ? this.setState({ month: month + 1 }) : this.setState({ month: 0, year: year + 1 });
+            this.changeCalendarHeader(11, 0, 1);
+        }
+    }, {
+        key: "changeCalendarHeader",
+        value: function changeCalendarHeader(ifValue, newMonthValue, move) {
+            var tempState = this.state;
+            if (tempState.month !== ifValue) tempState.month += move;else {
+                tempState.month = newMonthValue;
+                tempState.year += move;
+            }
+            this.setState(tempState);
+            this.props.onChange(tempState);
         }
     }]);
 
     return CalendarHeader;
 }(_react.Component);
-
-// ReactDOM.render(<CalendarHeader date={new Date()}/>, document.querySelector(".Layout"));
-//
-
 
 exports.default = CalendarHeader;
 
@@ -23852,10 +23837,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import ReactDOM from "react-dom";
-
 
 var dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+var DAYS_AT_WEEK = 7;
 
 var CalendarBody = function (_Component) {
     _inherits(CalendarBody, _Component);
@@ -23863,15 +23847,7 @@ var CalendarBody = function (_Component) {
     function CalendarBody(props) {
         _classCallCheck(this, CalendarBody);
 
-        var _this = _possibleConstructorReturn(this, (CalendarBody.__proto__ || Object.getPrototypeOf(CalendarBody)).call(this, props));
-
-        _this.state = {
-            date: _this.props.date.getDate(),
-            month: _this.props.date.getMonth(),
-            year: _this.props.date.getFullYear()
-            // calendar: this.createCalendarModel()
-        };
-        return _this;
+        return _possibleConstructorReturn(this, (CalendarBody.__proto__ || Object.getPrototypeOf(CalendarBody)).call(this, props));
     }
 
     _createClass(CalendarBody, [{
@@ -23890,10 +23866,10 @@ var CalendarBody = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 null,
-                dayNames.map(function (day) {
+                dayNames.map(function (day, i) {
                     return _react2.default.createElement(
                         "span",
-                        { className: "Calendar-body__day-name" },
+                        { key: i, className: "Calendar-body__day-name" },
                         day
                     );
                 })
@@ -23902,17 +23878,13 @@ var CalendarBody = function (_Component) {
     }, {
         key: "createCalendarModel",
         value: function createCalendarModel() {
-            var _state = this.state,
-                month = _state.month,
-                year = _state.year;
-            // const {date} = this.props;
-            // const month = date.getMonth();
-            // const year = date.getFullYear();
+            var _props = this.props,
+                month = _props.month,
+                year = _props.year;
 
             var numOfDays = new Date(year, month + 1, 0).getDate(); // num of days in cur month Feb 2018
             var firstDay = new Date(year, month, 1).getDay() || 7; // Feb 2018 - 4 - THURSDAY
             var lastDatePrevM = new Date(year, month, 0).getDate(); // last date of previous month
-            var DAYS_AT_WEEK = 7;
             var a = [];
             var startDay = lastDatePrevM - firstDay + 2;
             var nextDays = 7 - (firstDay + numOfDays - 1) % 7;
@@ -23922,41 +23894,35 @@ var CalendarBody = function (_Component) {
                 a.push([startDay, "Calendar-body__date_disabled"]);
                 startDay++;
             }
+
             var today = new Date();
             for (var _i = 1; _i <= numOfDays; _i++) {
                 // adding days of current month
-                if (_i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-                    a.push([_i, "Calendar-body__date_today"]);
-                } else {
-                    a.push([_i, ""]);
-                }
+                _i === today.getDate() && month === today.getMonth() && year === today.getFullYear() ? a.push([_i, "Calendar-body__date_today"]) : a.push([_i, ""]);
             }
+
             for (var _i2 = 1; _i2 <= nextDays; _i2++) {
                 // adding first days of next month
                 a.push([_i2, "Calendar-body__date_disabled"]);
             }
-
             return (0, _ramda.splitEvery)(DAYS_AT_WEEK, a);
         }
-        //
-
     }, {
         key: "renderCalendarBody",
         value: function renderCalendarBody() {
-            // const {calendar} = this.state;
             var calendar = this.createCalendarModel();
             return _react2.default.createElement(
                 "div",
                 { className: "Calendar-body__month" },
-                calendar.map(function (w) {
+                calendar.map(function (w, i) {
                     return _react2.default.createElement(
                         "div",
-                        { className: "Calendar-body__week" },
-                        w.map(function (d) {
+                        { key: i.toString(), className: "Calendar-body__week" },
+                        w.map(function (d, i) {
                             return _react2.default.createElement(
                                 "span",
-                                { className: "Calendar-body__date " + d[1] },
-                                d[0] + "  "
+                                { key: i.toString(), className: "Calendar-body__date " + d[1] },
+                                d[0]
                             );
                         })
                     );
@@ -23967,10 +23933,6 @@ var CalendarBody = function (_Component) {
 
     return CalendarBody;
 }(_react.Component);
-
-// ReactDOM.render(<CalendarBody date={new Date(2019, 1)}/>, document.querySelector(".Layout"));
-//
-
 
 exports.default = CalendarBody;
 
@@ -32741,140 +32703,9 @@ var zipWith = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__
 /* harmony default export */ __webpack_exports__["a"] = (zipWith);
 
 /***/ }),
-/* 359 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(18);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(360);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import ReactDOM from "react-dom";
-
-
-var RefreshButton = function (_Component) {
-    _inherits(RefreshButton, _Component);
-
-    function RefreshButton(props) {
-        _classCallCheck(this, RefreshButton);
-
-        var _this = _possibleConstructorReturn(this, (RefreshButton.__proto__ || Object.getPrototypeOf(RefreshButton)).call(this, props));
-
-        _this.state = {
-            date: _this.props.date,
-            month: _this.props.date.getMonth(),
-            year: _this.props.date.getFullYear()
-        };
-        return _this;
-    }
-
-    _createClass(RefreshButton, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "button",
-                { className: "Refresh-button", onClick: this.viewToday.bind(this) },
-                "Today"
-            );
-        }
-    }, {
-        key: "viewToday",
-        value: function viewToday(e) {
-            e.preventDefault();
-            var newDate = new Date();
-            this.setState({ year: newDate.getFullYear(), month: newDate.getMonth(), date: newDate.getDate() });
-        }
-    }]);
-
-    return RefreshButton;
-}(_react.Component);
-
-// ReactDOM.render(<RefreshButton date={new Date()}/>, document.querySelector(".Layout"));
-
-exports.default = RefreshButton;
-
-/***/ }),
-/* 360 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(361);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(25)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/cjs.js!./Refresh-button.less", function() {
-		var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/cjs.js!./Refresh-button.less");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 361 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(24)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".Refresh-button {\n  clear: left;\n  float: right;\n  border: #ff7f50 1px solid;\n  color: #ff7f50;\n  padding: 10px;\n  font-weight: bold;\n  border-radius: 3px;\n  background-color: white;\n  font-size: 12px;\n  cursor: pointer;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 359 */,
+/* 360 */,
+/* 361 */,
 /* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32933,71 +32764,7 @@ exports = module.exports = __webpack_require__(24)(false);
 
 
 // module
-exports.push([module.i, ".Layout {\n  width: 420px;\n  margin: auto;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 364 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(365);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(25)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/cjs.js!./Common.less", function() {
-		var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/cjs.js!./Common.less");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 365 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(24)(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\n  font-family: \"Open Sans\", sans-serif;\n}\n", ""]);
+exports.push([module.i, ".Layout {\n  width: 420px;\n  margin: auto;\n  font-family: \"Open Sans\", sans-serif;\n}\n", ""]);
 
 // exports
 
