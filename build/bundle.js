@@ -23847,18 +23847,22 @@ var CalendarBody = function (_Component) {
     function CalendarBody(props) {
         _classCallCheck(this, CalendarBody);
 
-        return _possibleConstructorReturn(this, (CalendarBody.__proto__ || Object.getPrototypeOf(CalendarBody)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (CalendarBody.__proto__ || Object.getPrototypeOf(CalendarBody)).call(this, props));
+
+        _this.state = {
+            calendar: _this.createCalendarModel(props)
+        };
+        return _this;
     }
 
     _createClass(CalendarBody, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "Calendar-body" },
-                this.viewDayNames(),
-                this.renderCalendarBody()
-            );
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps(newProps) {
+            if (this.props !== newProps) {
+                this.setState({
+                    calendar: this.createCalendarModel(newProps)
+                });
+            }
         }
     }, {
         key: "viewDayNames",
@@ -23877,13 +23881,12 @@ var CalendarBody = function (_Component) {
         }
     }, {
         key: "createCalendarModel",
-        value: function createCalendarModel() {
-            var _props = this.props,
-                month = _props.month,
-                year = _props.year;
+        value: function createCalendarModel(_ref) {
+            var month = _ref.month,
+                year = _ref.year;
 
-            var numOfDays = new Date(year, month + 1, 0).getDate(); // num of days in cur month Feb 2018
-            var firstDay = new Date(year, month, 1).getDay() || 7; // Feb 2018 - 4 - THURSDAY
+            var numOfDays = new Date(year, month + 1, 0).getDate(); // num of days in cur month
+            var firstDay = new Date(year, month, 1).getDay() || 7; // day of 1st of current month
             var lastDatePrevM = new Date(year, month, 0).getDate(); // last date of previous month
             var a = [];
             var startDay = lastDatePrevM - firstDay + 2;
@@ -23910,7 +23913,8 @@ var CalendarBody = function (_Component) {
     }, {
         key: "renderCalendarBody",
         value: function renderCalendarBody() {
-            var calendar = this.createCalendarModel();
+            var calendar = this.state.calendar;
+
             return _react2.default.createElement(
                 "div",
                 { className: "Calendar-body__month" },
@@ -23927,6 +23931,16 @@ var CalendarBody = function (_Component) {
                         })
                     );
                 })
+            );
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "Calendar-body" },
+                this.viewDayNames(),
+                this.renderCalendarBody()
             );
         }
     }]);

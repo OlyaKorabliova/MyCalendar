@@ -8,23 +8,26 @@ const DAYS_AT_WEEK = 7;
 class CalendarBody extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            calendar: this.createCalendarModel(props)
+        }
     }
 
-    render() {
-        return <div className={"Calendar-body"}>
-            {this.viewDayNames()}
-            {this.renderCalendarBody()}
-        </div>
+    componentWillReceiveProps(newProps) {
+        if (this.props !== newProps) {
+            this.setState({
+                calendar: this.createCalendarModel(newProps)
+            })
+        }
     }
 
     viewDayNames() {
         return <div>{dayNames.map((day, i) => <span key={i} className={"Calendar-body__day-name"}>{day}</span>)}</div>
     }
 
-    createCalendarModel() {
-        const {month, year} = this.props;
-        const numOfDays = new Date(year, month + 1, 0).getDate();       // num of days in cur month Feb 2018
-        const firstDay = new Date(year, month, 1).getDay() || 7;       // Feb 2018 - 4 - THURSDAY
+    createCalendarModel({month, year}) {
+        const numOfDays = new Date(year, month + 1, 0).getDate();       // num of days in cur month
+        const firstDay = new Date(year, month, 1).getDay() || 7;       // day of 1st of current month
         const lastDatePrevM = new Date(year, month, 0).getDate();     // last date of previous month
         let a = [];
         let startDay = lastDatePrevM - firstDay + 2;
@@ -47,15 +50,25 @@ class CalendarBody extends Component {
     }
 
     renderCalendarBody() {
-        let calendar = this.createCalendarModel();
+        const {calendar} = this.state;
         return <div className={"Calendar-body__month"}>
             {calendar.map((w, i) =>
                 <div key={i.toString()} className={"Calendar-body__week"}>
-                    {w.map((d, i) => <time key={i.toString()} className={`Calendar-body__date ${d[1]}`}>{d[0]}</time>)}
+                    {w.map((d, i) =>
+                        <time key={i.toString()} className={`Calendar-body__date ${d[1]}`}>{d[0]}</time>)
+                    }
                 </div>)
             }
         </div>;
     }
+
+    render() {
+        return <div className={"Calendar-body"}>
+            {this.viewDayNames()}
+            {this.renderCalendarBody()}
+        </div>
+    }
+
 }
 
 export default CalendarBody;
