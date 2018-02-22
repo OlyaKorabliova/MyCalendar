@@ -70,7 +70,7 @@
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _curry2;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isPlaceholder__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isPlaceholder__ = __webpack_require__(32);
 
 
 
@@ -107,7 +107,7 @@ function _curry2(fn) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _curry1;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isPlaceholder__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isPlaceholder__ = __webpack_require__(32);
 
 
 /**
@@ -136,7 +136,7 @@ function _curry1(fn) {
 /* harmony export (immutable) */ __webpack_exports__["a"] = _curry3;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isPlaceholder__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isPlaceholder__ = __webpack_require__(32);
 
 
 
@@ -255,7 +255,7 @@ function _dispatchable(methodNames, xf, fn) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_arity__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_curryN__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_curryN__ = __webpack_require__(34);
 
 
 
@@ -328,7 +328,7 @@ function _has(prop, obj) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_dispatchable__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_map__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_map__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_reduce__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_xmap__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__curryN__ = __webpack_require__(5);
@@ -399,7 +399,7 @@ var map = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a"
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _reduce;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArrayLike__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArrayLike__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__xwrap__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bind__ = __webpack_require__(81);
 
@@ -545,7 +545,7 @@ function _concat(set1, set2) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry3__ = __webpack_require__(2);
 
 
@@ -1176,6 +1176,1118 @@ function _contains(a, list) {
 
 /***/ }),
 /* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prop__ = __webpack_require__(53);
+
+
+
+
+/**
+ * Returns a new list by plucking the same named property off all objects in
+ * the list supplied.
+ *
+ * `pluck` will work on
+ * any [functor](https://github.com/fantasyland/fantasy-land#functor) in
+ * addition to arrays, as it is equivalent to `R.map(R.prop(k), f)`.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category List
+ * @sig Functor f => k -> f {k: v} -> f v
+ * @param {Number|String} key The key name to pluck off of each object.
+ * @param {Array} f The array or functor to consider.
+ * @return {Array} The list of values for the given key.
+ * @see R.props
+ * @example
+ *
+ *      R.pluck('a')([{a: 1}, {a: 2}]); //=> [1, 2]
+ *      R.pluck(0)([[1, 2], [3, 4]]);   //=> [1, 3]
+ *      R.pluck('val', {a: {val: 3}, b: {val: 5}}); //=> {a: 3, b: 5}
+ * @symb R.pluck('x', [{x: 1, y: 2}, {x: 3, y: 4}, {x: 5, y: 6}]) = [1, 3, 5]
+ * @symb R.pluck(0, [[1, 2], [3, 4], [5, 6]]) = [1, 3, 5]
+ */
+var pluck = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function pluck(p, list) {
+  return Object(__WEBPACK_IMPORTED_MODULE_1__map__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_2__prop__["a" /* default */])(p), list);
+});
+/* harmony default export */ __webpack_exports__["a"] = (pluck);
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _isString;
+function _isString(x) {
+  return Object.prototype.toString.call(x) === '[object String]';
+}
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _checkForMethod;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArray__ = __webpack_require__(16);
+
+
+/**
+ * This checks whether a function has a [methodname] function. If it isn't an
+ * array it will execute that function otherwise it will default to the ramda
+ * implementation.
+ *
+ * @private
+ * @param {Function} fn ramda implemtation
+ * @param {String} methodname property to check for a custom implementation
+ * @return {Object} Whatever the return value of the method is.
+ */
+function _checkForMethod(methodname, fn) {
+  return function () {
+    var length = arguments.length;
+    if (length === 0) {
+      return fn();
+    }
+    var obj = arguments[length - 1];
+    return Object(__WEBPACK_IMPORTED_MODULE_0__isArray__["a" /* default */])(obj) || typeof obj[methodname] !== 'function' ? fn.apply(this, arguments) : obj[methodname].apply(obj, Array.prototype.slice.call(arguments, 0, length - 1));
+  };
+}
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_toString__ = __webpack_require__(189);
+
+
+
+/**
+ * Returns the string representation of the given value. `eval`'ing the output
+ * should result in a value equivalent to the input value. Many of the built-in
+ * `toString` methods do not satisfy this requirement.
+ *
+ * If the given value is an `[object Object]` with a `toString` method other
+ * than `Object.prototype.toString`, this method is invoked with no arguments
+ * to produce the return value. This means user-defined constructor functions
+ * can provide a suitable `toString` method. For example:
+ *
+ *     function Point(x, y) {
+ *       this.x = x;
+ *       this.y = y;
+ *     }
+ *
+ *     Point.prototype.toString = function() {
+ *       return 'new Point(' + this.x + ', ' + this.y + ')';
+ *     };
+ *
+ *     R.toString(new Point(1, 2)); //=> 'new Point(1, 2)'
+ *
+ * @func
+ * @memberOf R
+ * @since v0.14.0
+ * @category String
+ * @sig * -> String
+ * @param {*} val
+ * @return {String}
+ * @example
+ *
+ *      R.toString(42); //=> '42'
+ *      R.toString('abc'); //=> '"abc"'
+ *      R.toString([1, 2, 3]); //=> '[1, 2, 3]'
+ *      R.toString({foo: 1, bar: 2, baz: 3}); //=> '{"bar": 2, "baz": 3, "foo": 1}'
+ *      R.toString(new Date('2001-02-03T04:05:06Z')); //=> 'new Date("2001-02-03T04:05:06.000Z")'
+ */
+var toString = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function toString(val) {
+  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_toString__["a" /* default */])(val, []);
+});
+/* harmony default export */ __webpack_exports__["a"] = (toString);
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isString__ = __webpack_require__(25);
+
+
+
+/**
+ * Returns the nth element of the given list or string. If n is negative the
+ * element at index length + n is returned.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category List
+ * @sig Number -> [a] -> a | Undefined
+ * @sig Number -> String -> String
+ * @param {Number} offset
+ * @param {*} list
+ * @return {*}
+ * @example
+ *
+ *      var list = ['foo', 'bar', 'baz', 'quux'];
+ *      R.nth(1, list); //=> 'bar'
+ *      R.nth(-1, list); //=> 'quux'
+ *      R.nth(-99, list); //=> undefined
+ *
+ *      R.nth(2, 'abc'); //=> 'c'
+ *      R.nth(3, 'abc'); //=> ''
+ * @symb R.nth(-1, [a, b, c]) = c
+ * @symb R.nth(0, [a, b, c]) = a
+ * @symb R.nth(1, [a, b, c]) = b
+ */
+var nth = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function nth(offset, list) {
+  var idx = offset < 0 ? list.length + offset : offset;
+  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_isString__["a" /* default */])(list) ? list.charAt(idx) : list[idx];
+});
+/* harmony default export */ __webpack_exports__["a"] = (nth);
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__curryN__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toString__ = __webpack_require__(27);
+
+
+
+
+
+/**
+ * Turns a named method with a specified arity into a function that can be
+ * called directly supplied with arguments and a target object.
+ *
+ * The returned function is curried and accepts `arity + 1` parameters where
+ * the final parameter is the target object.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category Function
+ * @sig Number -> String -> (a -> b -> ... -> n -> Object -> *)
+ * @param {Number} arity Number of arguments the returned function should take
+ *        before the target object.
+ * @param {String} method Name of the method to call.
+ * @return {Function} A new curried function.
+ * @see R.construct
+ * @example
+ *
+ *      var sliceFrom = R.invoker(1, 'slice');
+ *      sliceFrom(6, 'abcdefghijklm'); //=> 'ghijklm'
+ *      var sliceFrom6 = R.invoker(2, 'slice')(6);
+ *      sliceFrom6(8, 'abcdefghijklm'); //=> 'gh'
+ * @symb R.invoker(0, 'method')(o) = o['method']()
+ * @symb R.invoker(1, 'method')(a, o) = o['method'](a)
+ * @symb R.invoker(2, 'method')(a, b, o) = o['method'](a, b)
+ */
+var invoker = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function invoker(arity, method) {
+  return Object(__WEBPACK_IMPORTED_MODULE_2__curryN__["a" /* default */])(arity + 1, function () {
+    var target = arguments[arity];
+    if (target != null && Object(__WEBPACK_IMPORTED_MODULE_1__internal_isFunction__["a" /* default */])(target[method])) {
+      return target[method].apply(target, Array.prototype.slice.call(arguments, 0, arity));
+    }
+    throw new TypeError(Object(__WEBPACK_IMPORTED_MODULE_3__toString__["a" /* default */])(target) + ' does not have a method named "' + method + '"');
+  });
+});
+/* harmony default export */ __webpack_exports__["a"] = (invoker);
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyObject = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  Object.freeze(emptyObject);
+}
+
+module.exports = emptyObject;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _isPlaceholder;
+function _isPlaceholder(a) {
+       return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
+}
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+
+
+/**
+ * Adds two values.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category Math
+ * @sig Number -> Number -> Number
+ * @param {Number} a
+ * @param {Number} b
+ * @return {Number}
+ * @see R.subtract
+ * @example
+ *
+ *      R.add(2, 3);       //=>  5
+ *      R.add(7)(10);      //=> 17
+ */
+var add = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function add(a, b) {
+  return Number(a) + Number(b);
+});
+/* harmony default export */ __webpack_exports__["a"] = (add);
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _curryN;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__arity__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isPlaceholder__ = __webpack_require__(32);
+
+
+
+/**
+ * Internal curryN function.
+ *
+ * @private
+ * @category Function
+ * @param {Number} length The arity of the curried function.
+ * @param {Array} received An array of arguments received thus far.
+ * @param {Function} fn The function to curry.
+ * @return {Function} The curried function.
+ */
+function _curryN(length, received, fn) {
+  return function () {
+    var combined = [];
+    var argsIdx = 0;
+    var left = length;
+    var combinedIdx = 0;
+    while (combinedIdx < received.length || argsIdx < arguments.length) {
+      var result;
+      if (combinedIdx < received.length && (!Object(__WEBPACK_IMPORTED_MODULE_1__isPlaceholder__["a" /* default */])(received[combinedIdx]) || argsIdx >= arguments.length)) {
+        result = received[combinedIdx];
+      } else {
+        result = arguments[argsIdx];
+        argsIdx += 1;
+      }
+      combined[combinedIdx] = result;
+      if (!Object(__WEBPACK_IMPORTED_MODULE_1__isPlaceholder__["a" /* default */])(result)) {
+        left -= 1;
+      }
+      combinedIdx += 1;
+    }
+    return left <= 0 ? fn.apply(this, combined) : Object(__WEBPACK_IMPORTED_MODULE_0__arity__["a" /* default */])(left, _curryN(length, combined, fn));
+  };
+}
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _map;
+function _map(fn, functor) {
+  var idx = 0;
+  var len = functor.length;
+  var result = Array(len);
+  while (idx < len) {
+    result[idx] = fn(functor[idx]);
+    idx += 1;
+  }
+  return result;
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curry1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isArray__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isString__ = __webpack_require__(25);
+
+
+
+
+/**
+ * Tests whether or not an object is similar to an array.
+ *
+ * @private
+ * @category Type
+ * @category List
+ * @sig * -> Boolean
+ * @param {*} x The object to test.
+ * @return {Boolean} `true` if `x` has a numeric length property and extreme indices defined; `false` otherwise.
+ * @example
+ *
+ *      _isArrayLike([]); //=> true
+ *      _isArrayLike(true); //=> false
+ *      _isArrayLike({}); //=> false
+ *      _isArrayLike({length: 10}); //=> false
+ *      _isArrayLike({0: 'zero', 9: 'nine', length: 10}); //=> true
+ */
+var _isArrayLike = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry1__["a" /* default */])(function isArrayLike(x) {
+  if (Object(__WEBPACK_IMPORTED_MODULE_1__isArray__["a" /* default */])(x)) {
+    return true;
+  }
+  if (!x) {
+    return false;
+  }
+  if (typeof x !== 'object') {
+    return false;
+  }
+  if (Object(__WEBPACK_IMPORTED_MODULE_2__isString__["a" /* default */])(x)) {
+    return false;
+  }
+  if (x.nodeType === 1) {
+    return !!x.length;
+  }
+  if (x.length === 0) {
+    return true;
+  }
+  if (x.length > 0) {
+    return x.hasOwnProperty(0) && x.hasOwnProperty(x.length - 1);
+  }
+  return false;
+});
+/* harmony default export */ __webpack_exports__["a"] = (_isArrayLike);
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry3__ = __webpack_require__(2);
+
+
+/**
+ * Makes a shallow clone of an object, setting or overriding the specified
+ * property with the given value. Note that this copies and flattens prototype
+ * properties onto the new object as well. All non-primitive properties are
+ * copied by reference.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.8.0
+ * @category Object
+ * @sig String -> a -> {k: v} -> {k: v}
+ * @param {String} prop The property name to set
+ * @param {*} val The new value
+ * @param {Object} obj The object to clone
+ * @return {Object} A new object equivalent to the original except for the changed property.
+ * @see R.dissoc
+ * @example
+ *
+ *      R.assoc('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
+ */
+var assoc = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__["a" /* default */])(function assoc(prop, val, obj) {
+  var result = {};
+  for (var p in obj) {
+    result[p] = obj[p];
+  }
+  result[prop] = val;
+  return result;
+});
+/* harmony default export */ __webpack_exports__["a"] = (assoc);
+
+/***/ }),
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+
+
+/**
+ * Wraps a function of any arity (including nullary) in a function that accepts
+ * exactly `n` parameters. Any extraneous parameters will not be passed to the
+ * supplied function.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category Function
+ * @sig Number -> (* -> a) -> (* -> a)
+ * @param {Number} n The desired arity of the new function.
+ * @param {Function} fn The function to wrap.
+ * @return {Function} A new function wrapping `fn`. The new function is guaranteed to be of
+ *         arity `n`.
+ * @see R.binary, R.unary
+ * @example
+ *
+ *      var takesTwoArgs = (a, b) => [a, b];
+ *
+ *      takesTwoArgs.length; //=> 2
+ *      takesTwoArgs(1, 2); //=> [1, 2]
+ *
+ *      var takesOneArg = R.nAry(1, takesTwoArgs);
+ *      takesOneArg.length; //=> 1
+ *      // Only `n` arguments are passed to the wrapped function
+ *      takesOneArg(1, 2); //=> [1, undefined]
+ * @symb R.nAry(0, f)(a, b) = f()
+ * @symb R.nAry(1, f)(a, b) = f(a)
+ * @symb R.nAry(2, f)(a, b) = f(a, b)
+ */
+var nAry = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function nAry(n, fn) {
+  switch (n) {
+    case 0:
+      return function () {
+        return fn.call(this);
+      };
+    case 1:
+      return function (a0) {
+        return fn.call(this, a0);
+      };
+    case 2:
+      return function (a0, a1) {
+        return fn.call(this, a0, a1);
+      };
+    case 3:
+      return function (a0, a1, a2) {
+        return fn.call(this, a0, a1, a2);
+      };
+    case 4:
+      return function (a0, a1, a2, a3) {
+        return fn.call(this, a0, a1, a2, a3);
+      };
+    case 5:
+      return function (a0, a1, a2, a3, a4) {
+        return fn.call(this, a0, a1, a2, a3, a4);
+      };
+    case 6:
+      return function (a0, a1, a2, a3, a4, a5) {
+        return fn.call(this, a0, a1, a2, a3, a4, a5);
+      };
+    case 7:
+      return function (a0, a1, a2, a3, a4, a5, a6) {
+        return fn.call(this, a0, a1, a2, a3, a4, a5, a6);
+      };
+    case 8:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7) {
+        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7);
+      };
+    case 9:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8) {
+        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7, a8);
+      };
+    case 10:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
+        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
+      };
+    default:
+      throw new Error('First argument to nAry must be a non-negative integer no greater than ten');
+  }
+});
+/* harmony default export */ __webpack_exports__["a"] = (nAry);
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _isFunction;
+function _isFunction(x) {
+  return Object.prototype.toString.call(x) === '[object Function]';
+}
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__liftN__ = __webpack_require__(90);
+
+
+
+/**
+ * "lifts" a function of arity > 1 so that it may "map over" a list, Function or other
+ * object that satisfies the [FantasyLand Apply spec](https://github.com/fantasyland/fantasy-land#apply).
+ *
+ * @func
+ * @memberOf R
+ * @since v0.7.0
+ * @category Function
+ * @sig (*... -> *) -> ([*]... -> [*])
+ * @param {Function} fn The function to lift into higher context
+ * @return {Function} The lifted function.
+ * @see R.liftN
+ * @example
+ *
+ *      var madd3 = R.lift((a, b, c) => a + b + c);
+ *
+ *      madd3([1,2,3], [1,2,3], [1]); //=> [3, 4, 5, 4, 5, 6, 5, 6, 7]
+ *
+ *      var madd5 = R.lift((a, b, c, d, e) => a + b + c + d + e);
+ *
+ *      madd5([1,2], [3], [4, 5], [6], [7, 8]); //=> [21, 22, 22, 23, 22, 23, 23, 24]
+ */
+var lift = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function lift(fn) {
+  return Object(__WEBPACK_IMPORTED_MODULE_1__liftN__["a" /* default */])(fn.length, fn);
+});
+/* harmony default export */ __webpack_exports__["a"] = (lift);
+
+/***/ }),
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isString__ = __webpack_require__(25);
+
+
+
+/**
+ * Returns a new list or string with the elements or characters in reverse
+ * order.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category List
+ * @sig [a] -> [a]
+ * @sig String -> String
+ * @param {Array|String} list
+ * @return {Array|String}
+ * @example
+ *
+ *      R.reverse([1, 2, 3]);  //=> [3, 2, 1]
+ *      R.reverse([1, 2]);     //=> [2, 1]
+ *      R.reverse([1]);        //=> [1]
+ *      R.reverse([]);         //=> []
+ *
+ *      R.reverse('abc');      //=> 'cba'
+ *      R.reverse('ab');       //=> 'ba'
+ *      R.reverse('a');        //=> 'a'
+ *      R.reverse('');         //=> ''
+ */
+var reverse = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function reverse(list) {
+  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_isString__["a" /* default */])(list) ? list.split('').reverse().join('') : Array.prototype.slice.call(list, 0).reverse();
+});
+/* harmony default export */ __webpack_exports__["a"] = (reverse);
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = _containsWith;
+function _containsWith(pred, x, list) {
+  var idx = 0;
+  var len = list.length;
+
+  while (idx < len) {
+    if (pred(x, list[idx])) {
+      return true;
+    }
+    idx += 1;
+  }
+  return false;
+}
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_complement__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter__ = __webpack_require__(62);
+
+
+
+
+/**
+ * The complement of [`filter`](#filter).
+ *
+ * Acts as a transducer if a transformer is given in list position. Filterable
+ * objects include plain objects or any object that has a filter method such
+ * as `Array`.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category List
+ * @sig Filterable f => (a -> Boolean) -> f a -> f a
+ * @param {Function} pred
+ * @param {Array} filterable
+ * @return {Array}
+ * @see R.filter, R.transduce, R.addIndex
+ * @example
+ *
+ *      var isOdd = (n) => n % 2 === 1;
+ *
+ *      R.reject(isOdd, [1, 2, 3, 4]); //=> [2, 4]
+ *
+ *      R.reject(isOdd, {a: 1, b: 2, c: 3, d: 4}); //=> {b: 2, d: 4}
+ */
+var reject = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry2__["a" /* default */])(function reject(pred, filterable) {
+  return Object(__WEBPACK_IMPORTED_MODULE_2__filter__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_0__internal_complement__["a" /* default */])(pred), filterable);
+});
+/* harmony default export */ __webpack_exports__["a"] = (reject);
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curryN__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_dispatchable__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_has__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_reduce__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_xreduceBy__ = __webpack_require__(200);
+
+
+
+
+
+
+/**
+ * Groups the elements of the list according to the result of calling
+ * the String-returning function `keyFn` on each element and reduces the elements
+ * of each group to a single value via the reducer function `valueFn`.
+ *
+ * This function is basically a more general [`groupBy`](#groupBy) function.
+ *
+ * Acts as a transducer if a transformer is given in list position.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.20.0
+ * @category List
+ * @sig ((a, b) -> a) -> a -> (b -> String) -> [b] -> {String: a}
+ * @param {Function} valueFn The function that reduces the elements of each group to a single
+ *        value. Receives two values, accumulator for a particular group and the current element.
+ * @param {*} acc The (initial) accumulator value for each group.
+ * @param {Function} keyFn The function that maps the list's element into a key.
+ * @param {Array} list The array to group.
+ * @return {Object} An object with the output of `keyFn` for keys, mapped to the output of
+ *         `valueFn` for elements which produced that key when passed to `keyFn`.
+ * @see R.groupBy, R.reduce
+ * @example
+ *
+ *      var reduceToNamesBy = R.reduceBy((acc, student) => acc.concat(student.name), []);
+ *      var namesByGrade = reduceToNamesBy(function(student) {
+ *        var score = student.score;
+ *        return score < 65 ? 'F' :
+ *               score < 70 ? 'D' :
+ *               score < 80 ? 'C' :
+ *               score < 90 ? 'B' : 'A';
+ *      });
+ *      var students = [{name: 'Lucy', score: 92},
+ *                      {name: 'Drew', score: 85},
+ *                      // ...
+ *                      {name: 'Bart', score: 62}];
+ *      namesByGrade(students);
+ *      // {
+ *      //   'A': ['Lucy'],
+ *      //   'B': ['Drew']
+ *      //   // ...,
+ *      //   'F': ['Bart']
+ *      // }
+ */
+var reduceBy = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curryN__["a" /* default */])(4, [], /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_dispatchable__["a" /* default */])([], __WEBPACK_IMPORTED_MODULE_4__internal_xreduceBy__["a" /* default */], function reduceBy(valueFn, valueAcc, keyFn, list) {
+  return Object(__WEBPACK_IMPORTED_MODULE_3__internal_reduce__["a" /* default */])(function (acc, elt) {
+    var key = keyFn(elt);
+    acc[key] = valueFn(Object(__WEBPACK_IMPORTED_MODULE_2__internal_has__["a" /* default */])(key, acc) ? acc[key] : valueAcc, elt);
+    return acc;
+  }, {}, list);
+}));
+/* harmony default export */ __webpack_exports__["a"] = (reduceBy);
+
+/***/ }),
+/* 45 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curryN__ = __webpack_require__(5);
+
+
+
+/**
+ * Returns a new function much like the supplied one, except that the first two
+ * arguments' order is reversed.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.1.0
+ * @category Function
+ * @sig ((a, b, c, ...) -> z) -> (b -> a -> c -> ... -> z)
+ * @param {Function} fn The function to invoke with its first two parameters reversed.
+ * @return {*} The result of invoking `fn` with its first two parameters' order reversed.
+ * @example
+ *
+ *      var mergeThree = (a, b, c) => [].concat(a, b, c);
+ *
+ *      mergeThree(1, 2, 3); //=> [1, 2, 3]
+ *
+ *      R.flip(mergeThree)(1, 2, 3); //=> [2, 1, 3]
+ * @symb R.flip(f)(a, b, c) = f(b, a, c)
+ */
+var flip = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function flip(fn) {
+  return Object(__WEBPACK_IMPORTED_MODULE_1__curryN__["a" /* default */])(fn.length, function (a, b) {
+    var args = Array.prototype.slice.call(arguments, 0);
+    args[0] = b;
+    args[1] = a;
+    return fn.apply(this, args);
+  });
+});
+/* harmony default export */ __webpack_exports__["a"] = (flip);
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(7);
+
+
+
+/**
+ * Returns a lens for the given getter and setter functions. The getter "gets"
+ * the value of the focus; the setter "sets" the value of the focus. The setter
+ * should not mutate the data structure.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.8.0
+ * @category Object
+ * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
+ * @sig (s -> a) -> ((a, s) -> s) -> Lens s a
+ * @param {Function} getter
+ * @param {Function} setter
+ * @return {Lens}
+ * @see R.view, R.set, R.over, R.lensIndex, R.lensProp
+ * @example
+ *
+ *      var xLens = R.lens(R.prop('x'), R.assoc('x'));
+ *
+ *      R.view(xLens, {x: 1, y: 2});            //=> 1
+ *      R.set(xLens, 4, {x: 1, y: 2});          //=> {x: 4, y: 2}
+ *      R.over(xLens, R.negate, {x: 1, y: 2});  //=> {x: -1, y: 2}
+ */
+var lens = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function lens(getter, setter) {
+  return function (toFunctorFn) {
+    return function (target) {
+      return Object(__WEBPACK_IMPORTED_MODULE_1__map__["a" /* default */])(function (focus) {
+        return setter(focus, target);
+      }, toFunctorFn(getter(target)));
+    };
+  };
+});
+/* harmony default export */ __webpack_exports__["a"] = (lens);
+
+/***/ }),
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry3__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isObject__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mergeWithKey__ = __webpack_require__(71);
+
+
+
+
+/**
+ * Creates a new object with the own properties of the two provided objects.
+ * If a key exists in both objects:
+ * - and both associated values are also objects then the values will be
+ *   recursively merged.
+ * - otherwise the provided function is applied to the key and associated values
+ *   using the resulting value as the new value associated with the key.
+ * If a key only exists in one object, the value will be associated with the key
+ * of the resulting object.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.24.0
+ * @category Object
+ * @sig ((String, a, a) -> a) -> {a} -> {a} -> {a}
+ * @param {Function} fn
+ * @param {Object} lObj
+ * @param {Object} rObj
+ * @return {Object}
+ * @see R.mergeWithKey, R.mergeDeep, R.mergeDeepWith
+ * @example
+ *
+ *      let concatValues = (k, l, r) => k == 'values' ? R.concat(l, r) : r
+ *      R.mergeDeepWithKey(concatValues,
+ *                         { a: true, c: { thing: 'foo', values: [10, 20] }},
+ *                         { b: true, c: { thing: 'bar', values: [15, 35] }});
+ *      //=> { a: true, b: true, c: { thing: 'bar', values: [10, 20, 15, 35] }}
+ */
+var mergeDeepWithKey = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__["a" /* default */])(function mergeDeepWithKey(fn, lObj, rObj) {
+  return Object(__WEBPACK_IMPORTED_MODULE_2__mergeWithKey__["a" /* default */])(function (k, lVal, rVal) {
+    if (Object(__WEBPACK_IMPORTED_MODULE_1__internal_isObject__["a" /* default */])(lVal) && Object(__WEBPACK_IMPORTED_MODULE_1__internal_isObject__["a" /* default */])(rVal)) {
+      return mergeDeepWithKey(fn, lVal, rVal);
+    } else {
+      return fn(k, lVal, rVal);
+    }
+  }, lObj, rObj);
+});
+/* harmony default export */ __webpack_exports__["a"] = (mergeDeepWithKey);
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var validateFormat = function validateFormat(format) {};
+
+if (process.env.NODE_ENV !== 'production') {
+  validateFormat = function validateFormat(format) {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  };
+}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+}
+
+module.exports = invariant;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyFunction = __webpack_require__(19);
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
+
+/***/ }),
+/* 50 */
 /***/ (function(module, exports) {
 
 /*
@@ -1257,7 +2369,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 25 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1639,1118 +2751,6 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 26 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prop__ = __webpack_require__(53);
-
-
-
-
-/**
- * Returns a new list by plucking the same named property off all objects in
- * the list supplied.
- *
- * `pluck` will work on
- * any [functor](https://github.com/fantasyland/fantasy-land#functor) in
- * addition to arrays, as it is equivalent to `R.map(R.prop(k), f)`.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category List
- * @sig Functor f => k -> f {k: v} -> f v
- * @param {Number|String} key The key name to pluck off of each object.
- * @param {Array} f The array or functor to consider.
- * @return {Array} The list of values for the given key.
- * @see R.props
- * @example
- *
- *      R.pluck('a')([{a: 1}, {a: 2}]); //=> [1, 2]
- *      R.pluck(0)([[1, 2], [3, 4]]);   //=> [1, 3]
- *      R.pluck('val', {a: {val: 3}, b: {val: 5}}); //=> {a: 3, b: 5}
- * @symb R.pluck('x', [{x: 1, y: 2}, {x: 3, y: 4}, {x: 5, y: 6}]) = [1, 3, 5]
- * @symb R.pluck(0, [[1, 2], [3, 4], [5, 6]]) = [1, 3, 5]
- */
-var pluck = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function pluck(p, list) {
-  return Object(__WEBPACK_IMPORTED_MODULE_1__map__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_2__prop__["a" /* default */])(p), list);
-});
-/* harmony default export */ __webpack_exports__["a"] = (pluck);
-
-/***/ }),
-/* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _isString;
-function _isString(x) {
-  return Object.prototype.toString.call(x) === '[object String]';
-}
-
-/***/ }),
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _checkForMethod;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArray__ = __webpack_require__(16);
-
-
-/**
- * This checks whether a function has a [methodname] function. If it isn't an
- * array it will execute that function otherwise it will default to the ramda
- * implementation.
- *
- * @private
- * @param {Function} fn ramda implemtation
- * @param {String} methodname property to check for a custom implementation
- * @return {Object} Whatever the return value of the method is.
- */
-function _checkForMethod(methodname, fn) {
-  return function () {
-    var length = arguments.length;
-    if (length === 0) {
-      return fn();
-    }
-    var obj = arguments[length - 1];
-    return Object(__WEBPACK_IMPORTED_MODULE_0__isArray__["a" /* default */])(obj) || typeof obj[methodname] !== 'function' ? fn.apply(this, arguments) : obj[methodname].apply(obj, Array.prototype.slice.call(arguments, 0, length - 1));
-  };
-}
-
-/***/ }),
-/* 29 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_toString__ = __webpack_require__(189);
-
-
-
-/**
- * Returns the string representation of the given value. `eval`'ing the output
- * should result in a value equivalent to the input value. Many of the built-in
- * `toString` methods do not satisfy this requirement.
- *
- * If the given value is an `[object Object]` with a `toString` method other
- * than `Object.prototype.toString`, this method is invoked with no arguments
- * to produce the return value. This means user-defined constructor functions
- * can provide a suitable `toString` method. For example:
- *
- *     function Point(x, y) {
- *       this.x = x;
- *       this.y = y;
- *     }
- *
- *     Point.prototype.toString = function() {
- *       return 'new Point(' + this.x + ', ' + this.y + ')';
- *     };
- *
- *     R.toString(new Point(1, 2)); //=> 'new Point(1, 2)'
- *
- * @func
- * @memberOf R
- * @since v0.14.0
- * @category String
- * @sig * -> String
- * @param {*} val
- * @return {String}
- * @example
- *
- *      R.toString(42); //=> '42'
- *      R.toString('abc'); //=> '"abc"'
- *      R.toString([1, 2, 3]); //=> '[1, 2, 3]'
- *      R.toString({foo: 1, bar: 2, baz: 3}); //=> '{"bar": 2, "baz": 3, "foo": 1}'
- *      R.toString(new Date('2001-02-03T04:05:06Z')); //=> 'new Date("2001-02-03T04:05:06.000Z")'
- */
-var toString = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function toString(val) {
-  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_toString__["a" /* default */])(val, []);
-});
-/* harmony default export */ __webpack_exports__["a"] = (toString);
-
-/***/ }),
-/* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isString__ = __webpack_require__(27);
-
-
-
-/**
- * Returns the nth element of the given list or string. If n is negative the
- * element at index length + n is returned.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category List
- * @sig Number -> [a] -> a | Undefined
- * @sig Number -> String -> String
- * @param {Number} offset
- * @param {*} list
- * @return {*}
- * @example
- *
- *      var list = ['foo', 'bar', 'baz', 'quux'];
- *      R.nth(1, list); //=> 'bar'
- *      R.nth(-1, list); //=> 'quux'
- *      R.nth(-99, list); //=> undefined
- *
- *      R.nth(2, 'abc'); //=> 'c'
- *      R.nth(3, 'abc'); //=> ''
- * @symb R.nth(-1, [a, b, c]) = c
- * @symb R.nth(0, [a, b, c]) = a
- * @symb R.nth(1, [a, b, c]) = b
- */
-var nth = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function nth(offset, list) {
-  var idx = offset < 0 ? list.length + offset : offset;
-  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_isString__["a" /* default */])(list) ? list.charAt(idx) : list[idx];
-});
-/* harmony default export */ __webpack_exports__["a"] = (nth);
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__curryN__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toString__ = __webpack_require__(29);
-
-
-
-
-
-/**
- * Turns a named method with a specified arity into a function that can be
- * called directly supplied with arguments and a target object.
- *
- * The returned function is curried and accepts `arity + 1` parameters where
- * the final parameter is the target object.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Function
- * @sig Number -> String -> (a -> b -> ... -> n -> Object -> *)
- * @param {Number} arity Number of arguments the returned function should take
- *        before the target object.
- * @param {String} method Name of the method to call.
- * @return {Function} A new curried function.
- * @see R.construct
- * @example
- *
- *      var sliceFrom = R.invoker(1, 'slice');
- *      sliceFrom(6, 'abcdefghijklm'); //=> 'ghijklm'
- *      var sliceFrom6 = R.invoker(2, 'slice')(6);
- *      sliceFrom6(8, 'abcdefghijklm'); //=> 'gh'
- * @symb R.invoker(0, 'method')(o) = o['method']()
- * @symb R.invoker(1, 'method')(a, o) = o['method'](a)
- * @symb R.invoker(2, 'method')(a, b, o) = o['method'](a, b)
- */
-var invoker = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function invoker(arity, method) {
-  return Object(__WEBPACK_IMPORTED_MODULE_2__curryN__["a" /* default */])(arity + 1, function () {
-    var target = arguments[arity];
-    if (target != null && Object(__WEBPACK_IMPORTED_MODULE_1__internal_isFunction__["a" /* default */])(target[method])) {
-      return target[method].apply(target, Array.prototype.slice.call(arguments, 0, arity));
-    }
-    throw new TypeError(Object(__WEBPACK_IMPORTED_MODULE_3__toString__["a" /* default */])(target) + ' does not have a method named "' + method + '"');
-  });
-});
-/* harmony default export */ __webpack_exports__["a"] = (invoker);
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyObject = {};
-
-if (process.env.NODE_ENV !== 'production') {
-  Object.freeze(emptyObject);
-}
-
-module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
-
-/***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _isPlaceholder;
-function _isPlaceholder(a) {
-       return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
-}
-
-/***/ }),
-/* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-
-
-/**
- * Adds two values.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Math
- * @sig Number -> Number -> Number
- * @param {Number} a
- * @param {Number} b
- * @return {Number}
- * @see R.subtract
- * @example
- *
- *      R.add(2, 3);       //=>  5
- *      R.add(7)(10);      //=> 17
- */
-var add = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function add(a, b) {
-  return Number(a) + Number(b);
-});
-/* harmony default export */ __webpack_exports__["a"] = (add);
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _curryN;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__arity__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isPlaceholder__ = __webpack_require__(34);
-
-
-
-/**
- * Internal curryN function.
- *
- * @private
- * @category Function
- * @param {Number} length The arity of the curried function.
- * @param {Array} received An array of arguments received thus far.
- * @param {Function} fn The function to curry.
- * @return {Function} The curried function.
- */
-function _curryN(length, received, fn) {
-  return function () {
-    var combined = [];
-    var argsIdx = 0;
-    var left = length;
-    var combinedIdx = 0;
-    while (combinedIdx < received.length || argsIdx < arguments.length) {
-      var result;
-      if (combinedIdx < received.length && (!Object(__WEBPACK_IMPORTED_MODULE_1__isPlaceholder__["a" /* default */])(received[combinedIdx]) || argsIdx >= arguments.length)) {
-        result = received[combinedIdx];
-      } else {
-        result = arguments[argsIdx];
-        argsIdx += 1;
-      }
-      combined[combinedIdx] = result;
-      if (!Object(__WEBPACK_IMPORTED_MODULE_1__isPlaceholder__["a" /* default */])(result)) {
-        left -= 1;
-      }
-      combinedIdx += 1;
-    }
-    return left <= 0 ? fn.apply(this, combined) : Object(__WEBPACK_IMPORTED_MODULE_0__arity__["a" /* default */])(left, _curryN(length, combined, fn));
-  };
-}
-
-/***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _map;
-function _map(fn, functor) {
-  var idx = 0;
-  var len = functor.length;
-  var result = Array(len);
-  while (idx < len) {
-    result[idx] = fn(functor[idx]);
-    idx += 1;
-  }
-  return result;
-}
-
-/***/ }),
-/* 38 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isArray__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isString__ = __webpack_require__(27);
-
-
-
-
-/**
- * Tests whether or not an object is similar to an array.
- *
- * @private
- * @category Type
- * @category List
- * @sig * -> Boolean
- * @param {*} x The object to test.
- * @return {Boolean} `true` if `x` has a numeric length property and extreme indices defined; `false` otherwise.
- * @example
- *
- *      _isArrayLike([]); //=> true
- *      _isArrayLike(true); //=> false
- *      _isArrayLike({}); //=> false
- *      _isArrayLike({length: 10}); //=> false
- *      _isArrayLike({0: 'zero', 9: 'nine', length: 10}); //=> true
- */
-var _isArrayLike = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry1__["a" /* default */])(function isArrayLike(x) {
-  if (Object(__WEBPACK_IMPORTED_MODULE_1__isArray__["a" /* default */])(x)) {
-    return true;
-  }
-  if (!x) {
-    return false;
-  }
-  if (typeof x !== 'object') {
-    return false;
-  }
-  if (Object(__WEBPACK_IMPORTED_MODULE_2__isString__["a" /* default */])(x)) {
-    return false;
-  }
-  if (x.nodeType === 1) {
-    return !!x.length;
-  }
-  if (x.length === 0) {
-    return true;
-  }
-  if (x.length > 0) {
-    return x.hasOwnProperty(0) && x.hasOwnProperty(x.length - 1);
-  }
-  return false;
-});
-/* harmony default export */ __webpack_exports__["a"] = (_isArrayLike);
-
-/***/ }),
-/* 39 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry3__ = __webpack_require__(2);
-
-
-/**
- * Makes a shallow clone of an object, setting or overriding the specified
- * property with the given value. Note that this copies and flattens prototype
- * properties onto the new object as well. All non-primitive properties are
- * copied by reference.
- *
- * @func
- * @memberOf R
- * @since v0.8.0
- * @category Object
- * @sig String -> a -> {k: v} -> {k: v}
- * @param {String} prop The property name to set
- * @param {*} val The new value
- * @param {Object} obj The object to clone
- * @return {Object} A new object equivalent to the original except for the changed property.
- * @see R.dissoc
- * @example
- *
- *      R.assoc('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
- */
-var assoc = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__["a" /* default */])(function assoc(prop, val, obj) {
-  var result = {};
-  for (var p in obj) {
-    result[p] = obj[p];
-  }
-  result[prop] = val;
-  return result;
-});
-/* harmony default export */ __webpack_exports__["a"] = (assoc);
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-
-
-/**
- * Wraps a function of any arity (including nullary) in a function that accepts
- * exactly `n` parameters. Any extraneous parameters will not be passed to the
- * supplied function.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Function
- * @sig Number -> (* -> a) -> (* -> a)
- * @param {Number} n The desired arity of the new function.
- * @param {Function} fn The function to wrap.
- * @return {Function} A new function wrapping `fn`. The new function is guaranteed to be of
- *         arity `n`.
- * @see R.binary, R.unary
- * @example
- *
- *      var takesTwoArgs = (a, b) => [a, b];
- *
- *      takesTwoArgs.length; //=> 2
- *      takesTwoArgs(1, 2); //=> [1, 2]
- *
- *      var takesOneArg = R.nAry(1, takesTwoArgs);
- *      takesOneArg.length; //=> 1
- *      // Only `n` arguments are passed to the wrapped function
- *      takesOneArg(1, 2); //=> [1, undefined]
- * @symb R.nAry(0, f)(a, b) = f()
- * @symb R.nAry(1, f)(a, b) = f(a)
- * @symb R.nAry(2, f)(a, b) = f(a, b)
- */
-var nAry = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function nAry(n, fn) {
-  switch (n) {
-    case 0:
-      return function () {
-        return fn.call(this);
-      };
-    case 1:
-      return function (a0) {
-        return fn.call(this, a0);
-      };
-    case 2:
-      return function (a0, a1) {
-        return fn.call(this, a0, a1);
-      };
-    case 3:
-      return function (a0, a1, a2) {
-        return fn.call(this, a0, a1, a2);
-      };
-    case 4:
-      return function (a0, a1, a2, a3) {
-        return fn.call(this, a0, a1, a2, a3);
-      };
-    case 5:
-      return function (a0, a1, a2, a3, a4) {
-        return fn.call(this, a0, a1, a2, a3, a4);
-      };
-    case 6:
-      return function (a0, a1, a2, a3, a4, a5) {
-        return fn.call(this, a0, a1, a2, a3, a4, a5);
-      };
-    case 7:
-      return function (a0, a1, a2, a3, a4, a5, a6) {
-        return fn.call(this, a0, a1, a2, a3, a4, a5, a6);
-      };
-    case 8:
-      return function (a0, a1, a2, a3, a4, a5, a6, a7) {
-        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7);
-      };
-    case 9:
-      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8) {
-        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7, a8);
-      };
-    case 10:
-      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
-        return fn.call(this, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9);
-      };
-    default:
-      throw new Error('First argument to nAry must be a non-negative integer no greater than ten');
-  }
-});
-/* harmony default export */ __webpack_exports__["a"] = (nAry);
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _isFunction;
-function _isFunction(x) {
-  return Object.prototype.toString.call(x) === '[object Function]';
-}
-
-/***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__liftN__ = __webpack_require__(90);
-
-
-
-/**
- * "lifts" a function of arity > 1 so that it may "map over" a list, Function or other
- * object that satisfies the [FantasyLand Apply spec](https://github.com/fantasyland/fantasy-land#apply).
- *
- * @func
- * @memberOf R
- * @since v0.7.0
- * @category Function
- * @sig (*... -> *) -> ([*]... -> [*])
- * @param {Function} fn The function to lift into higher context
- * @return {Function} The lifted function.
- * @see R.liftN
- * @example
- *
- *      var madd3 = R.lift((a, b, c) => a + b + c);
- *
- *      madd3([1,2,3], [1,2,3], [1]); //=> [3, 4, 5, 4, 5, 6, 5, 6, 7]
- *
- *      var madd5 = R.lift((a, b, c, d, e) => a + b + c + d + e);
- *
- *      madd5([1,2], [3], [4, 5], [6], [7, 8]); //=> [21, 22, 22, 23, 22, 23, 23, 24]
- */
-var lift = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function lift(fn) {
-  return Object(__WEBPACK_IMPORTED_MODULE_1__liftN__["a" /* default */])(fn.length, fn);
-});
-/* harmony default export */ __webpack_exports__["a"] = (lift);
-
-/***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isString__ = __webpack_require__(27);
-
-
-
-/**
- * Returns a new list or string with the elements or characters in reverse
- * order.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category List
- * @sig [a] -> [a]
- * @sig String -> String
- * @param {Array|String} list
- * @return {Array|String}
- * @example
- *
- *      R.reverse([1, 2, 3]);  //=> [3, 2, 1]
- *      R.reverse([1, 2]);     //=> [2, 1]
- *      R.reverse([1]);        //=> [1]
- *      R.reverse([]);         //=> []
- *
- *      R.reverse('abc');      //=> 'cba'
- *      R.reverse('ab');       //=> 'ba'
- *      R.reverse('a');        //=> 'a'
- *      R.reverse('');         //=> ''
- */
-var reverse = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function reverse(list) {
-  return Object(__WEBPACK_IMPORTED_MODULE_1__internal_isString__["a" /* default */])(list) ? list.split('').reverse().join('') : Array.prototype.slice.call(list, 0).reverse();
-});
-/* harmony default export */ __webpack_exports__["a"] = (reverse);
-
-/***/ }),
-/* 44 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _containsWith;
-function _containsWith(pred, x, list) {
-  var idx = 0;
-  var len = list.length;
-
-  while (idx < len) {
-    if (pred(x, list[idx])) {
-      return true;
-    }
-    idx += 1;
-  }
-  return false;
-}
-
-/***/ }),
-/* 45 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_complement__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter__ = __webpack_require__(62);
-
-
-
-
-/**
- * The complement of [`filter`](#filter).
- *
- * Acts as a transducer if a transformer is given in list position. Filterable
- * objects include plain objects or any object that has a filter method such
- * as `Array`.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category List
- * @sig Filterable f => (a -> Boolean) -> f a -> f a
- * @param {Function} pred
- * @param {Array} filterable
- * @return {Array}
- * @see R.filter, R.transduce, R.addIndex
- * @example
- *
- *      var isOdd = (n) => n % 2 === 1;
- *
- *      R.reject(isOdd, [1, 2, 3, 4]); //=> [2, 4]
- *
- *      R.reject(isOdd, {a: 1, b: 2, c: 3, d: 4}); //=> {b: 2, d: 4}
- */
-var reject = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry2__["a" /* default */])(function reject(pred, filterable) {
-  return Object(__WEBPACK_IMPORTED_MODULE_2__filter__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_0__internal_complement__["a" /* default */])(pred), filterable);
-});
-/* harmony default export */ __webpack_exports__["a"] = (reject);
-
-/***/ }),
-/* 46 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curryN__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_dispatchable__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_has__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_reduce__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_xreduceBy__ = __webpack_require__(200);
-
-
-
-
-
-
-/**
- * Groups the elements of the list according to the result of calling
- * the String-returning function `keyFn` on each element and reduces the elements
- * of each group to a single value via the reducer function `valueFn`.
- *
- * This function is basically a more general [`groupBy`](#groupBy) function.
- *
- * Acts as a transducer if a transformer is given in list position.
- *
- * @func
- * @memberOf R
- * @since v0.20.0
- * @category List
- * @sig ((a, b) -> a) -> a -> (b -> String) -> [b] -> {String: a}
- * @param {Function} valueFn The function that reduces the elements of each group to a single
- *        value. Receives two values, accumulator for a particular group and the current element.
- * @param {*} acc The (initial) accumulator value for each group.
- * @param {Function} keyFn The function that maps the list's element into a key.
- * @param {Array} list The array to group.
- * @return {Object} An object with the output of `keyFn` for keys, mapped to the output of
- *         `valueFn` for elements which produced that key when passed to `keyFn`.
- * @see R.groupBy, R.reduce
- * @example
- *
- *      var reduceToNamesBy = R.reduceBy((acc, student) => acc.concat(student.name), []);
- *      var namesByGrade = reduceToNamesBy(function(student) {
- *        var score = student.score;
- *        return score < 65 ? 'F' :
- *               score < 70 ? 'D' :
- *               score < 80 ? 'C' :
- *               score < 90 ? 'B' : 'A';
- *      });
- *      var students = [{name: 'Lucy', score: 92},
- *                      {name: 'Drew', score: 85},
- *                      // ...
- *                      {name: 'Bart', score: 62}];
- *      namesByGrade(students);
- *      // {
- *      //   'A': ['Lucy'],
- *      //   'B': ['Drew']
- *      //   // ...,
- *      //   'F': ['Bart']
- *      // }
- */
-var reduceBy = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curryN__["a" /* default */])(4, [], /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_dispatchable__["a" /* default */])([], __WEBPACK_IMPORTED_MODULE_4__internal_xreduceBy__["a" /* default */], function reduceBy(valueFn, valueAcc, keyFn, list) {
-  return Object(__WEBPACK_IMPORTED_MODULE_3__internal_reduce__["a" /* default */])(function (acc, elt) {
-    var key = keyFn(elt);
-    acc[key] = valueFn(Object(__WEBPACK_IMPORTED_MODULE_2__internal_has__["a" /* default */])(key, acc) ? acc[key] : valueAcc, elt);
-    return acc;
-  }, {}, list);
-}));
-/* harmony default export */ __webpack_exports__["a"] = (reduceBy);
-
-/***/ }),
-/* 47 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curryN__ = __webpack_require__(5);
-
-
-
-/**
- * Returns a new function much like the supplied one, except that the first two
- * arguments' order is reversed.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Function
- * @sig ((a, b, c, ...) -> z) -> (b -> a -> c -> ... -> z)
- * @param {Function} fn The function to invoke with its first two parameters reversed.
- * @return {*} The result of invoking `fn` with its first two parameters' order reversed.
- * @example
- *
- *      var mergeThree = (a, b, c) => [].concat(a, b, c);
- *
- *      mergeThree(1, 2, 3); //=> [1, 2, 3]
- *
- *      R.flip(mergeThree)(1, 2, 3); //=> [2, 1, 3]
- * @symb R.flip(f)(a, b, c) = f(b, a, c)
- */
-var flip = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a" /* default */])(function flip(fn) {
-  return Object(__WEBPACK_IMPORTED_MODULE_1__curryN__["a" /* default */])(fn.length, function (a, b) {
-    var args = Array.prototype.slice.call(arguments, 0);
-    args[0] = b;
-    args[1] = a;
-    return fn.apply(this, args);
-  });
-});
-/* harmony default export */ __webpack_exports__["a"] = (flip);
-
-/***/ }),
-/* 48 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(7);
-
-
-
-/**
- * Returns a lens for the given getter and setter functions. The getter "gets"
- * the value of the focus; the setter "sets" the value of the focus. The setter
- * should not mutate the data structure.
- *
- * @func
- * @memberOf R
- * @since v0.8.0
- * @category Object
- * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
- * @sig (s -> a) -> ((a, s) -> s) -> Lens s a
- * @param {Function} getter
- * @param {Function} setter
- * @return {Lens}
- * @see R.view, R.set, R.over, R.lensIndex, R.lensProp
- * @example
- *
- *      var xLens = R.lens(R.prop('x'), R.assoc('x'));
- *
- *      R.view(xLens, {x: 1, y: 2});            //=> 1
- *      R.set(xLens, 4, {x: 1, y: 2});          //=> {x: 4, y: 2}
- *      R.over(xLens, R.negate, {x: 1, y: 2});  //=> {x: -1, y: 2}
- */
-var lens = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" /* default */])(function lens(getter, setter) {
-  return function (toFunctorFn) {
-    return function (target) {
-      return Object(__WEBPACK_IMPORTED_MODULE_1__map__["a" /* default */])(function (focus) {
-        return setter(focus, target);
-      }, toFunctorFn(getter(target)));
-    };
-  };
-});
-/* harmony default export */ __webpack_exports__["a"] = (lens);
-
-/***/ }),
-/* 49 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry3__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isObject__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mergeWithKey__ = __webpack_require__(71);
-
-
-
-
-/**
- * Creates a new object with the own properties of the two provided objects.
- * If a key exists in both objects:
- * - and both associated values are also objects then the values will be
- *   recursively merged.
- * - otherwise the provided function is applied to the key and associated values
- *   using the resulting value as the new value associated with the key.
- * If a key only exists in one object, the value will be associated with the key
- * of the resulting object.
- *
- * @func
- * @memberOf R
- * @since v0.24.0
- * @category Object
- * @sig ((String, a, a) -> a) -> {a} -> {a} -> {a}
- * @param {Function} fn
- * @param {Object} lObj
- * @param {Object} rObj
- * @return {Object}
- * @see R.mergeWithKey, R.mergeDeep, R.mergeDeepWith
- * @example
- *
- *      let concatValues = (k, l, r) => k == 'values' ? R.concat(l, r) : r
- *      R.mergeDeepWithKey(concatValues,
- *                         { a: true, c: { thing: 'foo', values: [10, 20] }},
- *                         { b: true, c: { thing: 'bar', values: [15, 35] }});
- *      //=> { a: true, b: true, c: { thing: 'bar', values: [10, 20, 15, 35] }}
- */
-var mergeDeepWithKey = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__["a" /* default */])(function mergeDeepWithKey(fn, lObj, rObj) {
-  return Object(__WEBPACK_IMPORTED_MODULE_2__mergeWithKey__["a" /* default */])(function (k, lVal, rVal) {
-    if (Object(__WEBPACK_IMPORTED_MODULE_1__internal_isObject__["a" /* default */])(lVal) && Object(__WEBPACK_IMPORTED_MODULE_1__internal_isObject__["a" /* default */])(rVal)) {
-      return mergeDeepWithKey(fn, lVal, rVal);
-    } else {
-      return fn(k, lVal, rVal);
-    }
-  }, lObj, rObj);
-});
-/* harmony default export */ __webpack_exports__["a"] = (mergeDeepWithKey);
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var validateFormat = function validateFormat(format) {};
-
-if (process.env.NODE_ENV !== 'production') {
-  validateFormat = function validateFormat(format) {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  };
-}
-
-function invariant(condition, format, a, b, c, d, e, f) {
-  validateFormat(format);
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-}
-
-module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyFunction = __webpack_require__(19);
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
-
-/***/ }),
 /* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3011,7 +3011,7 @@ var type = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = compose;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pipe__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(41);
 
 
 
@@ -3051,7 +3051,7 @@ function compose() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__slice__ = __webpack_require__(11);
 
@@ -3095,9 +3095,9 @@ var tail = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry1__["a
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isArray__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_isFunction__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_isString__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__toString__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_isFunction__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_isString__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__toString__ = __webpack_require__(27);
 
 
 
@@ -3497,8 +3497,8 @@ var mergeWithKey = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_cur
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(50);
-  var warning = __webpack_require__(51);
+  var invariant = __webpack_require__(48);
+  var warning = __webpack_require__(49);
   var ReactPropTypesSecret = __webpack_require__(138);
   var loggedTypeFailures = {};
 }
@@ -4191,7 +4191,7 @@ var values = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__[
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_has__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_isArray__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_isInteger__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__assoc__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__assoc__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__isNil__ = __webpack_require__(89);
 
 
@@ -4320,7 +4320,7 @@ var liftN = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _makeFlat;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArrayLike__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isArrayLike__ = __webpack_require__(36);
 
 
 /**
@@ -4712,7 +4712,7 @@ function _complement(f) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curry__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nAry__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nAry__ = __webpack_require__(38);
 
 
 
@@ -4794,10 +4794,10 @@ var constructN = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_map__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_map__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__curryN__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__max__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pluck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pluck__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reduce__ = __webpack_require__(14);
 
 
@@ -4928,7 +4928,7 @@ var difference = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry3__ = __webpack_require__(2);
 
 
@@ -5176,7 +5176,7 @@ var dropRepeatsWith = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nth__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nth__ = __webpack_require__(28);
 
 
 /**
@@ -5244,7 +5244,7 @@ var or = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["a" 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isArguments__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_isArray__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__internal_isObject__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_isString__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__internal_isString__ = __webpack_require__(25);
 
 
 
@@ -5547,7 +5547,7 @@ var mean = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__["a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reduce__ = __webpack_require__(14);
 
 
@@ -6006,7 +6006,7 @@ var sequence = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
 
 
@@ -6141,7 +6141,7 @@ _reactDom2.default.render(_react2.default.createElement(_Layout2.default, { date
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(32),n=__webpack_require__(33),p=__webpack_require__(19),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(30),n=__webpack_require__(31),p=__webpack_require__(19),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -6177,10 +6177,10 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(32);
-var emptyObject = __webpack_require__(33);
-var invariant = __webpack_require__(50);
-var warning = __webpack_require__(51);
+var _assign = __webpack_require__(30);
+var emptyObject = __webpack_require__(31);
+var invariant = __webpack_require__(48);
+var warning = __webpack_require__(49);
 var emptyFunction = __webpack_require__(19);
 var checkPropTypes = __webpack_require__(72);
 
@@ -7602,7 +7602,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(18),l=__webpack_require__(73),B=__webpack_require__(32),C=__webpack_require__(19),ba=__webpack_require__(74),da=__webpack_require__(75),ea=__webpack_require__(76),fa=__webpack_require__(77),ia=__webpack_require__(78),D=__webpack_require__(33);
+var aa=__webpack_require__(18),l=__webpack_require__(73),B=__webpack_require__(30),C=__webpack_require__(19),ba=__webpack_require__(74),da=__webpack_require__(75),ea=__webpack_require__(76),fa=__webpack_require__(77),ia=__webpack_require__(78),D=__webpack_require__(31);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -7900,17 +7900,17 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var React = __webpack_require__(18);
-var invariant = __webpack_require__(50);
-var warning = __webpack_require__(51);
+var invariant = __webpack_require__(48);
+var warning = __webpack_require__(49);
 var ExecutionEnvironment = __webpack_require__(73);
-var _assign = __webpack_require__(32);
+var _assign = __webpack_require__(30);
 var emptyFunction = __webpack_require__(19);
 var EventListener = __webpack_require__(74);
 var getActiveElement = __webpack_require__(75);
 var shallowEqual = __webpack_require__(76);
 var containsNode = __webpack_require__(77);
 var focusNode = __webpack_require__(78);
-var emptyObject = __webpack_require__(33);
+var emptyObject = __webpack_require__(31);
 var checkPropTypes = __webpack_require__(72);
 var hyphenateStyleName = __webpack_require__(144);
 var camelizeStyleName = __webpack_require__(146);
@@ -23460,7 +23460,7 @@ var _CalendarBody = __webpack_require__(156);
 
 var _CalendarBody2 = _interopRequireDefault(_CalendarBody);
 
-__webpack_require__(362);
+__webpack_require__(359);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23634,7 +23634,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(25)(content, options);
+var update = __webpack_require__(51)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -23670,7 +23670,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var escape = __webpack_require__(152);
-exports = module.exports = __webpack_require__(24)(false);
+exports = module.exports = __webpack_require__(50)(false);
 // imports
 
 
@@ -23920,7 +23920,7 @@ var CalendarBody = function (_Component) {
                         { key: i.toString(), className: "Calendar-body__week" },
                         w.map(function (d, i) {
                             return _react2.default.createElement(
-                                "span",
+                                "time",
                                 { key: i.toString(), className: "Calendar-body__date " + d[1] },
                                 d[0]
                             );
@@ -23955,7 +23955,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(25)(content, options);
+var update = __webpack_require__(51)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -23990,7 +23990,7 @@ if(false) {
 /* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)(false);
+exports = module.exports = __webpack_require__(50)(false);
 // imports
 
 
@@ -24012,7 +24012,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "T", function() { return __WEBPACK_IMPORTED_MODULE_1__T__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(162);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "__", function() { return __WEBPACK_IMPORTED_MODULE_2____["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add__ = __webpack_require__(33);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "add", function() { return __WEBPACK_IMPORTED_MODULE_3__add__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__addIndex__ = __webpack_require__(163);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "addIndex", function() { return __WEBPACK_IMPORTED_MODULE_4__addIndex__["a"]; });
@@ -24044,7 +24044,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTo", function() { return __WEBPACK_IMPORTED_MODULE_17__applyTo__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ascend__ = __webpack_require__(175);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ascend", function() { return __WEBPACK_IMPORTED_MODULE_18__ascend__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__assoc__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__assoc__ = __webpack_require__(37);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "assoc", function() { return __WEBPACK_IMPORTED_MODULE_19__assoc__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__assocPath__ = __webpack_require__(88);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "assocPath", function() { return __WEBPACK_IMPORTED_MODULE_20__assocPath__["a"]; });
@@ -24144,7 +24144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "findLastIndex", function() { return __WEBPACK_IMPORTED_MODULE_67__findLastIndex__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__flatten__ = __webpack_require__(229);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "flatten", function() { return __WEBPACK_IMPORTED_MODULE_68__flatten__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__flip__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__flip__ = __webpack_require__(45);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "flip", function() { return __WEBPACK_IMPORTED_MODULE_69__flip__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__forEach__ = __webpack_require__(230);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return __WEBPACK_IMPORTED_MODULE_70__forEach__["a"]; });
@@ -24196,7 +24196,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "invert", function() { return __WEBPACK_IMPORTED_MODULE_93__invert__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__invertObj__ = __webpack_require__(255);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "invertObj", function() { return __WEBPACK_IMPORTED_MODULE_94__invertObj__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__invoker__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__invoker__ = __webpack_require__(29);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "invoker", function() { return __WEBPACK_IMPORTED_MODULE_95__invoker__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_96__is__ = __webpack_require__(117);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "is", function() { return __WEBPACK_IMPORTED_MODULE_96__is__["a"]; });
@@ -24218,7 +24218,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lastIndexOf", function() { return __WEBPACK_IMPORTED_MODULE_104__lastIndexOf__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_105__length__ = __webpack_require__(119);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "length", function() { return __WEBPACK_IMPORTED_MODULE_105__length__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__lens__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_106__lens__ = __webpack_require__(46);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lens", function() { return __WEBPACK_IMPORTED_MODULE_106__lens__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_107__lensIndex__ = __webpack_require__(260);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lensIndex", function() { return __WEBPACK_IMPORTED_MODULE_107__lensIndex__["a"]; });
@@ -24226,7 +24226,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lensPath", function() { return __WEBPACK_IMPORTED_MODULE_108__lensPath__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__lensProp__ = __webpack_require__(262);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lensProp", function() { return __WEBPACK_IMPORTED_MODULE_109__lensProp__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__lift__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__lift__ = __webpack_require__(40);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "lift", function() { return __WEBPACK_IMPORTED_MODULE_110__lift__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__liftN__ = __webpack_require__(90);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "liftN", function() { return __WEBPACK_IMPORTED_MODULE_111__liftN__["a"]; });
@@ -24268,7 +24268,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "mergeDeepRight", function() { return __WEBPACK_IMPORTED_MODULE_129__mergeDeepRight__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_130__mergeDeepWith__ = __webpack_require__(277);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "mergeDeepWith", function() { return __WEBPACK_IMPORTED_MODULE_130__mergeDeepWith__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__mergeDeepWithKey__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_131__mergeDeepWithKey__ = __webpack_require__(47);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "mergeDeepWithKey", function() { return __WEBPACK_IMPORTED_MODULE_131__mergeDeepWithKey__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_132__mergeWith__ = __webpack_require__(278);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "mergeWith", function() { return __WEBPACK_IMPORTED_MODULE_132__mergeWith__["a"]; });
@@ -24282,7 +24282,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "modulo", function() { return __WEBPACK_IMPORTED_MODULE_136__modulo__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_137__multiply__ = __webpack_require__(124);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "multiply", function() { return __WEBPACK_IMPORTED_MODULE_137__multiply__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__nAry__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_138__nAry__ = __webpack_require__(38);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "nAry", function() { return __WEBPACK_IMPORTED_MODULE_138__nAry__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_139__negate__ = __webpack_require__(282);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "negate", function() { return __WEBPACK_IMPORTED_MODULE_139__negate__["a"]; });
@@ -24290,7 +24290,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "none", function() { return __WEBPACK_IMPORTED_MODULE_140__none__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_141__not__ = __webpack_require__(94);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "not", function() { return __WEBPACK_IMPORTED_MODULE_141__not__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__nth__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_142__nth__ = __webpack_require__(28);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "nth", function() { return __WEBPACK_IMPORTED_MODULE_142__nth__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_143__nthArg__ = __webpack_require__(284);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "nthArg", function() { return __WEBPACK_IMPORTED_MODULE_143__nthArg__["a"]; });
@@ -24336,7 +24336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "pipeK", function() { return __WEBPACK_IMPORTED_MODULE_163__pipeK__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_164__pipeP__ = __webpack_require__(97);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "pipeP", function() { return __WEBPACK_IMPORTED_MODULE_164__pipeP__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__pluck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_165__pluck__ = __webpack_require__(24);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "pluck", function() { return __WEBPACK_IMPORTED_MODULE_165__pluck__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_166__prepend__ = __webpack_require__(128);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "prepend", function() { return __WEBPACK_IMPORTED_MODULE_166__prepend__["a"]; });
@@ -24360,7 +24360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "range", function() { return __WEBPACK_IMPORTED_MODULE_175__range__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_176__reduce__ = __webpack_require__(14);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reduce", function() { return __WEBPACK_IMPORTED_MODULE_176__reduce__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_177__reduceBy__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_177__reduceBy__ = __webpack_require__(44);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reduceBy", function() { return __WEBPACK_IMPORTED_MODULE_177__reduceBy__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_178__reduceRight__ = __webpack_require__(130);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reduceRight", function() { return __WEBPACK_IMPORTED_MODULE_178__reduceRight__["a"]; });
@@ -24368,7 +24368,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reduceWhile", function() { return __WEBPACK_IMPORTED_MODULE_179__reduceWhile__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_180__reduced__ = __webpack_require__(309);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reduced", function() { return __WEBPACK_IMPORTED_MODULE_180__reduced__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_181__reject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_181__reject__ = __webpack_require__(43);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reject", function() { return __WEBPACK_IMPORTED_MODULE_181__reject__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_182__remove__ = __webpack_require__(107);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "remove", function() { return __WEBPACK_IMPORTED_MODULE_182__remove__["a"]; });
@@ -24376,7 +24376,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "repeat", function() { return __WEBPACK_IMPORTED_MODULE_183__repeat__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_184__replace__ = __webpack_require__(311);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "replace", function() { return __WEBPACK_IMPORTED_MODULE_184__replace__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_185__reverse__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_185__reverse__ = __webpack_require__(41);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "reverse", function() { return __WEBPACK_IMPORTED_MODULE_185__reverse__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_186__scan__ = __webpack_require__(312);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "scan", function() { return __WEBPACK_IMPORTED_MODULE_186__scan__["a"]; });
@@ -24432,7 +24432,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "toPairs", function() { return __WEBPACK_IMPORTED_MODULE_211__toPairs__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_212__toPairsIn__ = __webpack_require__(334);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "toPairsIn", function() { return __WEBPACK_IMPORTED_MODULE_212__toPairsIn__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_213__toString__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_213__toString__ = __webpack_require__(27);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "toString", function() { return __WEBPACK_IMPORTED_MODULE_213__toString__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_214__toUpper__ = __webpack_require__(335);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "toUpper", function() { return __WEBPACK_IMPORTED_MODULE_214__toUpper__["a"]; });
@@ -24979,7 +24979,7 @@ var _xall = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry2__["a" /* def
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curryN__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__max__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pluck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pluck__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reduce__ = __webpack_require__(14);
 
 
@@ -25064,7 +25064,7 @@ var _xmap = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry2__["a" /* def
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curryN__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__max__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pluck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pluck__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reduce__ = __webpack_require__(14);
 
 
@@ -25261,7 +25261,7 @@ var append = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry2__[
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__curryN__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__max__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pluck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pluck__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reduce__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__values__ = __webpack_require__(87);
 
@@ -25386,7 +25386,7 @@ var ascend = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__[
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nAry__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nAry__ = __webpack_require__(38);
 
 
 
@@ -25429,9 +25429,9 @@ var binary = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__[
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__and__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lift__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lift__ = __webpack_require__(40);
 
 
 
@@ -25540,7 +25540,7 @@ var _xchain = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry2__["a" /* d
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forceReduced__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isArrayLike__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isArrayLike__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reduce__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__xfBase__ = __webpack_require__(4);
 
@@ -25701,7 +25701,7 @@ var comparator = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lift__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lift__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__not__ = __webpack_require__(94);
 
 
@@ -25750,7 +25750,7 @@ function _pipe(f, g) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = composeP;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pipeP__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(41);
 
 
 
@@ -25817,11 +25817,11 @@ function _pipeP(f, g) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _toString;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__contains__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__map__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__quote__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toISOString__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__keys__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reject__ = __webpack_require__(43);
 
 
 
@@ -25880,7 +25880,7 @@ function _toString(x, seen) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = _equals;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__arrayFromIterator__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containsWith__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containsWith__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functionName__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__has__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__identical__ = __webpack_require__(99);
@@ -26268,7 +26268,7 @@ var contains = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry2_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reduceBy__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reduceBy__ = __webpack_require__(44);
 
 
 /**
@@ -26305,7 +26305,7 @@ var countBy = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__reduceBy__["a" /*
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curryN__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__curryN__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__has__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__xfBase__ = __webpack_require__(4);
 
@@ -26355,7 +26355,7 @@ var _xreduceBy = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curryN__["a" /
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(33);
 
 
 /**
@@ -26420,7 +26420,7 @@ var descend = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isInteger__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assoc__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assoc__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dissoc__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__remove__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__update__ = __webpack_require__(65);
@@ -26902,8 +26902,8 @@ var _xdropWhile = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry2__["a" 
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lift__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_isFunction__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lift__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__or__ = __webpack_require__(112);
 
 
@@ -27471,7 +27471,7 @@ var flatten = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
 
 
@@ -27605,9 +27605,9 @@ var fromPairs = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reduceBy__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reduceBy__ = __webpack_require__(44);
 
 
 
@@ -27864,7 +27864,7 @@ var hasIn = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nth__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nth__ = __webpack_require__(28);
 
 
 /**
@@ -27938,7 +27938,7 @@ var ifElse = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__[
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add__ = __webpack_require__(33);
 
 
 /**
@@ -27964,7 +27964,7 @@ var inc = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__add__["a" /* default 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reduceBy__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reduceBy__ = __webpack_require__(44);
 
 
 /**
@@ -28070,7 +28070,7 @@ var init = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__slice__["a" /* defau
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_containsWith__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry3__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_filter__ = __webpack_require__(63);
 
@@ -28194,7 +28194,7 @@ var insertAll = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_contains__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_filter__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__flip__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__flip__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__uniq__ = __webpack_require__(69);
 
 
@@ -28417,7 +28417,7 @@ function hasOrAdd(item, shouldAdd, set) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_checkForMethod__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
 
 
@@ -28522,7 +28522,7 @@ var into = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry3__["a
 /* harmony export (immutable) */ __webpack_exports__["a"] = _stepCat;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__assign__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__identity__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isArrayLike__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isArrayLike__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__isTransformer__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__objOf__ = __webpack_require__(116);
 
@@ -28748,7 +28748,7 @@ var isEmpty = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(29);
 
 
 /**
@@ -28865,8 +28865,8 @@ var lastIndexOf = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curr
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lens__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nth__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lens__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nth__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__update__ = __webpack_require__(65);
 
 
@@ -28905,7 +28905,7 @@ var lensIndex = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assocPath__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lens__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lens__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__path__ = __webpack_require__(22);
 
 
@@ -28947,8 +28947,8 @@ var lensPath = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1_
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assoc__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lens__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assoc__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lens__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prop__ = __webpack_require__(53);
 
 
@@ -29374,7 +29374,7 @@ var median = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__[
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__memoizeWith__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__toString__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__toString__ = __webpack_require__(27);
 
 
 
@@ -29487,7 +29487,7 @@ var mergeAll = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry1_
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(47);
 
 
 
@@ -29525,7 +29525,7 @@ var mergeDeepLeft = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_cu
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(47);
 
 
 
@@ -29563,7 +29563,7 @@ var mergeDeepRight = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_c
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry3__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mergeDeepWithKey__ = __webpack_require__(47);
 
 
 
@@ -29822,7 +29822,7 @@ var none = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_curry2__["a
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__curryN__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nth__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nth__ = __webpack_require__(28);
 
 
 
@@ -30096,7 +30096,7 @@ var partial = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_createPa
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_concat__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_createPartialApplicator__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flip__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flip__ = __webpack_require__(45);
 
 
 
@@ -30135,7 +30135,7 @@ var partialRight = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__internal_cre
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__filter__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__juxt__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reject__ = __webpack_require__(43);
 
 
 
@@ -30363,7 +30363,7 @@ var pickBy = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__[
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = pipeK;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__composeK__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reverse__ = __webpack_require__(41);
 
 
 
@@ -30441,7 +30441,7 @@ var product = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_1__reduce__["a" /* d
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_map__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_map__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__identity__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pickAll__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__useWith__ = __webpack_require__(129);
@@ -30707,7 +30707,7 @@ var range = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__["
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curryN__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curryN__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_reduce__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_reduced__ = __webpack_require__(17);
 
@@ -31081,7 +31081,7 @@ var sortWith = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(29);
 
 
 /**
@@ -31573,7 +31573,7 @@ var _xtap = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__curry2__["a" /* def
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_cloneRegExp__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_isRegExp__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toString__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toString__ = __webpack_require__(27);
 
 
 
@@ -31619,7 +31619,7 @@ function _isRegExp(x) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(29);
 
 
 /**
@@ -31722,7 +31722,7 @@ var toPairsIn = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoker__ = __webpack_require__(29);
 
 
 /**
@@ -32026,7 +32026,7 @@ var unapply = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry1__
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_curry1__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nAry__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nAry__ = __webpack_require__(38);
 
 
 
@@ -32506,8 +32506,8 @@ var whereEq = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry2__
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_contains__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_curry2__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flip__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reject__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flip__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reject__ = __webpack_require__(43);
 
 
 
@@ -32703,14 +32703,11 @@ var zipWith = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0__internal_curry3__
 /* harmony default export */ __webpack_exports__["a"] = (zipWith);
 
 /***/ }),
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(363);
+var content = __webpack_require__(360);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -32724,7 +32721,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(25)(content, options);
+var update = __webpack_require__(51)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -32756,10 +32753,10 @@ if(false) {
 }
 
 /***/ }),
-/* 363 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)(false);
+exports = module.exports = __webpack_require__(50)(false);
 // imports
 
 

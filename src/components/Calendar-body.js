@@ -51,7 +51,7 @@ class CalendarBody extends Component {
         return <div className={"Calendar-body__month"}>
             {calendar.map((w, i) =>
                 <div key={i.toString()} className={"Calendar-body__week"}>
-                    {w.map((d, i) => <span key={i.toString()} className={`Calendar-body__date ${d[1]}`}>{d[0]}</span>)}
+                    {w.map((d, i) => <time key={i.toString()} className={`Calendar-body__date ${d[1]}`}>{d[0]}</time>)}
                 </div>)
             }
         </div>;

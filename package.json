@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --watch",
-    "start": "npm run webpack",
+    "serve": "serve",
+    "start": "npm run webpack | npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,6 +29,8 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "ramda": "^0.25.0"
+    "g": "^2.0.1",
+    "ramda": "^0.25.0",
+    "serve": "^6.4.11"
   }
 }
