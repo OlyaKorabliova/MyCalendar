@@ -4,6 +4,7 @@ import {splitEvery} from "ramda";
 
 const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const DAYS_AT_WEEK = 7;
+const today = new Date();
 
 class CalendarBody extends Component {
     constructor(props) {
@@ -29,24 +30,15 @@ class CalendarBody extends Component {
         const numOfDays = new Date(year, month + 1, 0).getDate();       // num of days in cur month
         const firstDay = new Date(year, month, 1).getDay() || 7;       // day of 1st of current month
         const lastDatePrevM = new Date(year, month, 0).getDate();     // last date of previous month
-        let a = [];
-        let startDay = lastDatePrevM - firstDay + 2;
         const nextDays = 7 - (firstDay + numOfDays - 1) % 7;
 
-        for (let i = 0; i < firstDay - 1; i++) {        // adding last days of previous month
-            a.push([startDay, "Calendar-body__date_disabled"]);
-            startDay++;
-        }
+        const prevMonth = Array(firstDay - 1).fill(0).map((el, i) => [lastDatePrevM - i, "Calendar-body__date_disabled"]).sort((a, b) => {return a[0] > b[0]});
+        const curMonth = Array(numOfDays).fill(0).map((el, i) => (i + 1 === today.getDate() && month === today.getMonth() && year === today.getFullYear()) ? [i + 1, "Calendar-body__date_today"] : [i + 1, ""]);
+        const nextMonth = Array(nextDays).fill(0).map((el, i) => [i + 1, "Calendar-body__date_disabled"]);
 
-        const today = new Date();
-        for (let i = 1; i <= numOfDays; i++) {          // adding days of current month
-            (i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) ? a.push([i, "Calendar-body__date_today"]) : a.push([i, ""]);
-        }
+        let arr = [...prevMonth, ...curMonth, ...nextMonth];
 
-        for (let i = 1; i <= nextDays; i++) {           // adding first days of next month
-            a.push([i, "Calendar-body__date_disabled"]);
-        }
-        return splitEvery(DAYS_AT_WEEK, a);
+        return splitEvery(DAYS_AT_WEEK, arr);
     }
 
     renderCalendarBody() {

@@ -23675,7 +23675,7 @@ exports = module.exports = __webpack_require__(50)(false);
 
 
 // module
-exports.push([module.i, ".Calendar-header {\n  height: 24px;\n  padding: 10px 0;\n  text-align: center;\n  color: #ff7f50;\n}\n.Calendar-header__button {\n  width: 98px;\n  border: none;\n  color: transparent;\n  margin: 4px;\n  cursor: pointer;\n}\n.Calendar-header__button_back {\n  background: url(" + escape(__webpack_require__(153)) + ") no-repeat right;\n  background-size: 12px 12px;\n  float: left;\n}\n.Calendar-header__button_next {\n  background: url(" + escape(__webpack_require__(154)) + ") no-repeat left;\n  background-size: 12px 12px;\n  float: right;\n}\n", ""]);
+exports.push([module.i, ".Calendar-header {\n  height: 24px;\n  padding: 10px 0;\n  text-align: center;\n  color: #f98857;\n}\n.Calendar-header__button {\n  width: 98px;\n  border: none;\n  color: transparent;\n  margin: 4px;\n  cursor: pointer;\n}\n.Calendar-header__button_back {\n  background: url(" + escape(__webpack_require__(153)) + ") no-repeat right;\n  background-size: 12px 12px;\n  float: left;\n}\n.Calendar-header__button_next {\n  background: url(" + escape(__webpack_require__(154)) + ") no-repeat left;\n  background-size: 12px 12px;\n  float: right;\n}\n", ""]);
 
 // exports
 
@@ -23832,6 +23832,8 @@ var _ramda = __webpack_require__(159);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -23840,6 +23842,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 var DAYS_AT_WEEK = 7;
+var today = new Date();
 
 var CalendarBody = function (_Component) {
     _inherits(CalendarBody, _Component);
@@ -23888,27 +23891,23 @@ var CalendarBody = function (_Component) {
             var numOfDays = new Date(year, month + 1, 0).getDate(); // num of days in cur month
             var firstDay = new Date(year, month, 1).getDay() || 7; // day of 1st of current month
             var lastDatePrevM = new Date(year, month, 0).getDate(); // last date of previous month
-            var a = [];
-            var startDay = lastDatePrevM - firstDay + 2;
             var nextDays = 7 - (firstDay + numOfDays - 1) % 7;
 
-            for (var i = 0; i < firstDay - 1; i++) {
-                // adding last days of previous month
-                a.push([startDay, "Calendar-body__date_disabled"]);
-                startDay++;
-            }
+            var prevMonth = Array(firstDay - 1).fill(0).map(function (el, i) {
+                return [lastDatePrevM - i, "Calendar-body__date_disabled"];
+            }).sort(function (a, b) {
+                return a[0] > b[0];
+            });
+            var curMonth = Array(numOfDays).fill(0).map(function (el, i) {
+                return i + 1 === today.getDate() && month === today.getMonth() && year === today.getFullYear() ? [i + 1, "Calendar-body__date_today"] : [i + 1, ""];
+            });
+            var nextMonth = Array(nextDays).fill(0).map(function (el, i) {
+                return [i + 1, "Calendar-body__date_disabled"];
+            });
 
-            var today = new Date();
-            for (var _i = 1; _i <= numOfDays; _i++) {
-                // adding days of current month
-                _i === today.getDate() && month === today.getMonth() && year === today.getFullYear() ? a.push([_i, "Calendar-body__date_today"]) : a.push([_i, ""]);
-            }
+            var arr = [].concat(_toConsumableArray(prevMonth), _toConsumableArray(curMonth), _toConsumableArray(nextMonth));
 
-            for (var _i2 = 1; _i2 <= nextDays; _i2++) {
-                // adding first days of next month
-                a.push([_i2, "Calendar-body__date_disabled"]);
-            }
-            return (0, _ramda.splitEvery)(DAYS_AT_WEEK, a);
+            return (0, _ramda.splitEvery)(DAYS_AT_WEEK, arr);
         }
     }, {
         key: "renderCalendarBody",
@@ -24009,7 +24008,7 @@ exports = module.exports = __webpack_require__(50)(false);
 
 
 // module
-exports.push([module.i, ".Calendar-body__day-name {\n  width: 59px;\n  height: 22px;\n  float: left;\n  text-align: center;\n  border: #ff7f50 solid 1px;\n  border-bottom: 0;\n  box-sizing: border-box;\n  color: #ff7f50;\n  font-weight: bold;\n  font-size: 13px;\n  margin: 0 0.5px;\n}\n.Calendar-body__date {\n  width: 59px;\n  height: 60px;\n  border: 1px solid #ff7f50;\n  float: left;\n  box-sizing: border-box;\n  color: #ff7f50;\n  font-size: 12px;\n  cursor: pointer;\n  padding: 3px 0 0 5px;\n  background-color: #ffff33;\n  margin: 0.5px;\n}\n.Calendar-body__date_today {\n  background-color: #ff7f50;\n  color: white;\n}\n.Calendar-body__date_disabled {\n  opacity: 0.4;\n  cursor: default;\n}\n.Calendar-body__month {\n  min-height: 400px;\n}\n", ""]);
+exports.push([module.i, ".Calendar-body__day-name {\n  width: 59px;\n  height: 22px;\n  float: left;\n  text-align: center;\n  border: #f98857 solid 1px;\n  border-bottom: 0;\n  box-sizing: border-box;\n  color: #f98857;\n  font-weight: bold;\n  font-size: 13px;\n  margin: 0 0.5px;\n}\n.Calendar-body__date {\n  width: 59px;\n  height: 60px;\n  border: 1px solid #f98857;\n  float: left;\n  box-sizing: border-box;\n  color: #f98857;\n  font-size: 12px;\n  cursor: pointer;\n  padding: 3px 0 0 5px;\n  background-color: #ffff66;\n  margin: 0.5px;\n}\n.Calendar-body__date_today {\n  background-color: #f98857;\n  color: white;\n}\n.Calendar-body__date_disabled {\n  opacity: 0.4;\n  cursor: default;\n}\n.Calendar-body__month {\n  min-height: 400px;\n}\n", ""]);
 
 // exports
 
