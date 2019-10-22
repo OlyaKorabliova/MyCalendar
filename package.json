@@ -31,6 +31,6 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "ramda": "^0.25.0",
-    "serve": "^6.5.8"
+    "serve": "^7.1.3"
   }
 }
